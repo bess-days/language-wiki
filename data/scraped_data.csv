@@ -1,0 +1,38 @@
+language,ISO-Code,Family,Branch,Speakers (in millions),Countries,script
+English,en,Indo-European,Germanic,"1,528",74.0,"['Cirth', 'Ewellic', 'Latin']"
+Chinese,zh,Sino-Tibetan,Sinitic,"1,184",27.0,"[""'Phags-pa""]"
+Hindi,hi,Indo-European,Indo-Aryan,609,9.0,"['Brahmic', 'Devanagari']"
+Spanish,es,Indo-European,Romance,558,36.0,"['Arabic', 'Latin']"
+Arabic,ar,Afro-Asiatic,Semitic,335,35.0,"['Arabic', 'Syriac']"
+French,fr,Indo-European,Romance,312,51.0,['Latin']
+Bengali,bn,Indo-European,Indo-Aryan,284,4.0,['Assamese/Bengali']
+Portuguese,pt,Indo-European,Romance,267,18.0,['Latin']
+Russian,ru,Indo-European,Balto-Slavic,253,22.0,['Cyrillic']
+Indonesian,id,Austronesian,Malayo-Polynesian,252,,['Latin']
+Urdu,ur,Indo-European,Indo-Aryan,246,6.0,['Arabic']
+German,de,Indo-European,Germanic,134,20.0,['Latin']
+Japanese,ja,Japonic,—,126,4.0,"['Chinese', 'Kana']"
+Nigerian Pidgin,,English Creole,Krio,121,,
+Egyptian Arabic,,Afro-Asiatic,Semitic,119,,
+Marathi,mr,Indo-European,Indo-Aryan,99,1.0,"['Brahmic', 'Devanagari']"
+Vietnamese,vi,Austroasiatic,Vietic,97,4.0,['Latin']
+Telugu,te,Dravidian,South-Central,96,1.0,['Telugu']
+Hausa,ha,Afro-Asiatic,Chadic,94,3.0,"['Arabic', 'Latin']"
+Turkish,tr,Turkic,Oghuz,91,14.0,['Latin']
+Punjabi,pa,Indo-European,Indo-Aryan,90,4.0,"['Arabic', 'Gurmukhi']"
+Swahili,sw,Niger–Congo,Bantu,87,,"['Arabic', 'Latin']"
+Tagalog,tl,Austronesian,Malayo-Polynesian,87,11.0,"['Baybayin', 'Latin']"
+Tamil,ta,Dravidian,South,86,6.0,['Tamil']
+Yue Chinese,,Sino-Tibetan,Sinitic,86,,
+Wu Chinese,,Sino-Tibetan,Sinitic,83,,
+Persian,fa,Indo-European,Iranian,83,6.0,['Arabic']
+Korean,ko,Koreanic,—,82,7.0,['Hangul']
+Thai,th,Kra–Dai,Zhuang–Tai,71,,['Thai']
+Javanese,jv,Austronesian,Malayo-Polynesian,69,1.0,"['Arabic', 'Javanese']"
+Italian,it,Indo-European,Romance,66,16.0,['Latin']
+Gujarati,gu,Indo-European,Indo-Aryan,62,3.0,['Gujarati']
+Levantine Arabic,,Afro-Asiatic,Semitic,60,,
+Amharic,am,Afro-Asiatic,Semitic,60,,['Saba']
+Kannada,kn,Dravidian,South,59,1.0,['Kannada']
+Bhojpuri,,Indo-European,Indo-Aryan,53,,"['Brahmic', 'Devanagari']"
+Sudanese Arabic,,Afro-Asiatic,Semitic,52,,
