@@ -1,5 +1,8 @@
+from numpy.lib._datasource import Repository
+
+from model.common_enums import *
 class Language:
-    def __init__(self, name: str, iso_code: str,  family:str, branch: str, scripts: list, countries: int, speakers: int):
+    def __init__(self, name: str, iso_code: str,  family:Family, branch: str, scripts: list, countries: int, speakers: int):
         self.languageName = name
         self.iso_code = iso_code
         self.languageFamily = family
@@ -25,7 +28,7 @@ class Search:
     def search_family(self, query: str):
         results = []
         for language in self.language_repository.get_languages():
-            if language.languageFamily == query:
+            if language.languageFamily.name == query:
                 results.append(language)
         return results
     def search_branch(self, query: str):
@@ -77,4 +80,6 @@ class Search:
 
 
 
+repo = LanguageRepository()
+lang1 = Language("French", "fr", Family.INDO_EUROPEAN, "Romance", ["Latin"], 51, 312 )
 

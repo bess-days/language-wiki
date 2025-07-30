@@ -1,11 +1,12 @@
 import pytest
 from model.objects import *
 
+
 REPO = LanguageRepository()
-REPO.add_language(Language("French", "fr", "Indo-European", "Romance",  ["Latin"],  51, 312))
-REPO.add_language(Language("Arabic", "ar", "Afro-Asiatic", "Semitic", ["Arabic", "Syrian"],35, 325))
-REPO.add_language(Language("Javanese", "jv", "Austronesian", "Malayo-Polynesian", ["Javanese", "Latin"],1,  69))
-REPO.add_language(Language("Spanish", "es", "Indo-European", "Romance", ["Latin"], 36, 558))
+REPO.add_language(Language("French", "fr", Family.INDO_EUROPEAN, "Romance",  ["Latin"],  51, 312))
+REPO.add_language(Language("Arabic", "ar", Family.AFRO_ASIATIC, "Semitic", ["Arabic", "Syrian"],35, 325))
+REPO.add_language(Language("Javanese", "jv", Family.AUSTRONESIAN, "Malayo-Polynesian", ["Javanese", "Latin"],1,  69))
+REPO.add_language(Language("Spanish", "es", Family.INDO_EUROPEAN, "Romance", ["Latin"], 36, 558))
 def test_languages():
     assert len(REPO.languages) == 4
 def test_language_names():
@@ -18,7 +19,7 @@ def test_language_queries():
     assert search.search_language("French").languageName == "French"
 def test_family():
     search = Search(REPO)
-    assert len(search.search_family("Indo-European")) == 2
+    assert len(search.search_family("INDO_EUROPEAN")) == 2
 def test_branch():
     search = Search(REPO)
     assert len(search.search_branch("Romance")) == 2
