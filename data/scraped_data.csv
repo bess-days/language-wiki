@@ -5,7 +5,7 @@ Hindi,hi,Indo-European,Indo-Aryan,609,9.0,"['Brahmic', 'Devanagari']"
 Spanish,es,Indo-European,Romance,558,36.0,"['Arabic', 'Latin']"
 Arabic,ar,Afro-Asiatic,Semitic,335,35.0,"['Arabic', 'Syriac']"
 French,fr,Indo-European,Romance,312,51.0,['Latin']
-Bengali,bn,Indo-European,Indo-Aryan,284,4.0,['Assamese/Bengali']
+Bengali,bn,Indo-European,Indo-Aryan,",",4.0,['Assamese/Bengali']
 Portuguese,pt,Indo-European,Romance,267,18.0,['Latin']
 Russian,ru,Indo-European,Balto-Slavic,253,22.0,['Cyrillic']
 Indonesian,id,Austronesian,Malayo-Polynesian,252,,['Latin']

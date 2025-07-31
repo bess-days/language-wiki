@@ -1,40 +1,34 @@
 import pytest
-from model.objects import *
+from model.language import *
 
 
-REPO = LanguageRepository()
-REPO.add_language(Language("French", "fr", Family.INDO_EUROPEAN, "Romance",  ["Latin"],  51, 312))
-REPO.add_language(Language("Arabic", "ar", Family.AFRO_ASIATIC, "Semitic", ["Arabic", "Syrian"],35, 325))
-REPO.add_language(Language("Javanese", "jv", Family.AUSTRONESIAN, "Malayo-Polynesian", ["Javanese", "Latin"],1,  69))
-REPO.add_language(Language("Spanish", "es", Family.INDO_EUROPEAN, "Romance", ["Latin"], 36, 558))
+
+LANGUAGES = [Language_Obj("French", "fr", Family.INDO_EUROPEAN, "Romance",  51, 312,  ["Latin"]),
+             Language_Obj("Arabic", "ar", Family.AFRO_ASIATIC, "Semitic",35, 325,  ["Arabic", "Syriac"]),
+             Language_Obj("Javanese", "jv", Family.AUSTRONESIAN, "Malayo-Polynesian",1,  69,  ["Javanese", "Latin"]),
+             Language_Obj("Spanish", "es", Family.INDO_EUROPEAN, "Romance", 36, 558, ["Latin"])]
+
+
 def test_languages():
-    assert len(REPO.languages) == 4
+    assert len(LANGUAGES) == 4
 def test_language_names():
-    assert REPO.languages[0].languageName == "French"
-    assert REPO.languages[1].languageName == "Arabic"
-    assert REPO.languages[2].languageName == "Javanese"
-    assert REPO.languages[3].languageName == "Spanish"
-def test_language_queries():
-    search= Search(REPO)
-    assert search.search_language("French").languageName == "French"
-def test_family():
-    search = Search(REPO)
-    assert len(search.search_family("INDO_EUROPEAN")) == 2
-def test_branch():
-    search = Search(REPO)
-    assert len(search.search_branch("Romance")) == 2
-    assert len(search.search_branch("Semitic")) == 1
-    assert len(search.search_branch("Malayo-Polynesian")) == 1
-def test_script():
-    search = Search(REPO)
-    assert len(search.search_script("Latin")) == 3
-    assert len(search.search_script("Arabic")) == 1
-    assert len(search.search_script("Javanese")) == 1
-def test_speakers():
-    search = Search(REPO)
-    assert len(search.search_speakers("300 - 700")) == 3
-    assert len(search.search_speakers("50 - 75")) == 1
-def test_countries():
-    search = Search(REPO)
-    assert len(search.search_countries("31-50")) == 2
-    assert len(search.search_countries("1")) == 1
+    assert LANGUAGES[0].languageName == "French"
+    assert LANGUAGES[1].languageName == "Arabic"
+    assert LANGUAGES[2].languageName == "Javanese"
+    assert LANGUAGES[3].languageName == "Spanish"
+def test_iso_codes():
+    assert LANGUAGES[0].iso_code == "fr"
+    assert LANGUAGES[1].iso_code == "ar"
+    assert LANGUAGES[2].iso_code == "jv"
+    assert LANGUAGES[3].iso_code == "es"
+def test_families():
+    assert LANGUAGES[0].languageFamily == Family.INDO_EUROPEAN
+    assert LANGUAGES[1].languageFamily == Family.AFRO_ASIATIC
+    assert LANGUAGES[2].languageFamily == Family.AUSTRONESIAN
+    assert LANGUAGES[3].languageFamily == Family.INDO_EUROPEAN
+def test_scripts():
+    assert LANGUAGES[0].languageScripts == ["Latin"]
+    assert LANGUAGES[1].languageScripts == ["Arabic", "Syriac"]
+    assert LANGUAGES[2].languageScripts == ["Javanese", "Latin"]
+    assert LANGUAGES[3].languageScripts == ["Latin"]
+

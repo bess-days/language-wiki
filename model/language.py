@@ -1,0 +1,12 @@
+from model.common_enums import *
+class Language_Obj:
+    def __init__(self, name: str, iso_code: str,  family:Family, branch: str, countries: int, speakers: int, scripts: list):
+        self.languageName = name
+        self.iso_code = iso_code
+        self.languageFamily = family
+        self.languageBranch = branch
+        self.countriesSpoken = countries
+        self.languageSpeakers = speakers
+        self.languageScripts = scripts
+    def __str__(self):
+        return f"{self.languageName, self.languageFamily, self.languageBranch, self.languageSpeakers, self.countriesSpoken, self.languageScripts}"

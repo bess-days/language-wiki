@@ -1,5 +1,3 @@
-from numpy.lib._datasource import Repository
-
 from model.common_enums import *
 class Language:
     def __init__(self, name: str, iso_code: str,  family:Family, branch: str, scripts: list, countries: int, speakers: int):

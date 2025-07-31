@@ -1,24 +1,23 @@
 CREATE DATABASE languages;
-ALTER DATABASE languages CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 use languages;
-CREATE TABLE language_2 (
+CREATE TABLE language (
     lang_id SMALLINT UNSIGNED AUTO_INCREMENT,
-    name NVARCHAR(30),
-    iso NVARCHAR(3),
+    name VARCHAR(30),
+    iso_code CHAR(3),
     family ENUM('Indo-European', 'Afro-Asiatic', 'Sino-Tibetan', 'Austronesian', 'Japonic', 'Austroasiatic', 'Kra-Dai','Dravidian', 'Turkic', 'Niger-Congo', 'Koreanic' ),
-    branch NVARCHAR(20),
+    branch VARCHAR(20),
     speakers SMALLINT,
     countries TINYINT,
     CONSTRAINT pk_lang PRIMARY KEY (lang_id)
 );
 CREATE TABLE scripts (
     lang_id SMALLINT UNSIGNED,
-    script NVARCHAR(20),
+    script VARCHAR(20),
     CONSTRAINT pk_scripts PRIMARY KEY (lang_id, script),
     CONSTRAINT fk_lang_script_lang_id FOREIGN KEY (lang_id)
-    REFERENCES language_2 (lang_id)
+    REFERENCES language (lang_id)
 );
-INSERT INTO language_2 (lang_id,name, iso, family, branch, speakers, countries)
+INSERT INTO language (lang_id,name, iso_code, family, branch, speakers, countries)
 VALUES
     (null, 'English', 'en', 'Indo-European', 'Germanic', 1528, 74),
     (null, 'Chinese', 'zh', 'Sino-Tibetan', 'Sinitic', 1184, 27 ),
@@ -50,7 +49,54 @@ VALUES
     (null, 'Gujarati', 'gu', 'Indo-European', 'Indo-Aryan', 62, 3),
     (null, 'Amharic', 'am', 'Afro-Asiatic', 'Semitic', 60, 7),
     (null, 'Kannada', 'kn', 'Dravidian','South', 59, 1),
-    (null, 'Bhojpuri', 'bho', 'Indo-European', 'Indo-Aryan', 53, 3 )
+    (null, 'Bhojpuri', 'bho', 'Indo-European', 'Indo-Aryan', 53, 3 );
+INSERT INTO scripts (lang_id, script)
+VALUES
+    (1, 'Latin'),
+    (2, 'Chinese'),
+    (3, 'Devanagari'),
+    (4, 'Latin'),
+    (5, 'Arabic'),
+    (5, 'Syriac'),
+    (6, 'Latin'),
+    (7, 'Bengali'),
+    (8, 'Latin'),
+    (9, 'Cyrillic'),
+    (10, 'Latin'),
+    (11, 'Arabic'),
+    (12, 'Latin'),
+    (13, 'Chinese'),
+    (13, 'Kana'),
+    (14, 'Devanagari'),
+    (15, 'Latin'),
+    (16, 'Telugu'),
+    (17, 'Latin'),
+    (17, 'Arabic'),
+    (18, 'Latin'),
+    (19, 'Gurmukhi'),
+    (19, 'Arabic'),
+    (20, 'Latin'),
+    (20, 'Arabic'),
+    (21, 'Baybayin'),
+    (21, 'Latin'),
+    (22, 'Tamil'),
+    (23, 'Arabic'),
+    (24, 'Hangul'),
+    (25, 'Thai'),
+    (26, 'Arabic'),
+    (26, 'Javanese'),
+    (27, 'Latin'),
+    (28, 'Gujarati'),
+    (29, 'Saba'),
+    (30, 'Kannada'),
+    (31, 'Devanagari');
+
+
+SELECT * FROM language;
+
+SELECT s.script FROM scripts s
+INNER JOIN language l ON l.lang_id = s.lang_id
+ORDER BY l.lang_id;
 
 
 
