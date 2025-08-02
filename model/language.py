@@ -1,6 +1,6 @@
 from model.common_enums import *
 class Language_Obj:
-    def __init__(self, name: str, iso_code: str,  family:Family, branch: str, countries: int, speakers: int, scripts: list):
+    def __init__(self, name: str, iso_code: str,  family:Family, branch: Branch, countries: int, speakers: int, scripts: list[Script]):
         self.languageName = name
         self.iso_code = iso_code
         self.languageFamily = family
