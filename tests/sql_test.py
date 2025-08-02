@@ -55,3 +55,6 @@ def test_mapper():
     assert ko.languageSpeakers == 82
     assert ko.countriesSpoken == 7
     assert ko.languageScripts == [Script.HANGUL]
+def test_load_languages():
+    languages = repo.load_languages()
+    assert len(languages) == 31
