@@ -104,7 +104,8 @@ class MysqlRepository(Repository):
             'scripts': []
         }
         for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        self.cursor.execute('SELECT lang_id, script FROM scripts')
+        sql2 = 'SELECT lang_id, script FROM scripts'
+        self.cursor.execute(sql2)
         entries_dict = {entry['lang_id']: entry for entry in entries}
         for lang_id, script in self.cursor:
             if lang_id in entries_dict:
