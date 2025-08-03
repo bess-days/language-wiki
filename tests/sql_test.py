@@ -37,7 +37,7 @@ def test_map_scripts():
     korean_scripts = repo.map_scripts(korean)
     assert arabic_scripts[0] == Script.ARABIC
     assert  arabic_scripts[1] == Script.SYRIAC
-    assert korean_scripts[0] == Script.ARABIC
+    assert korean_scripts[0] == Script.HANGUL
 def test_mapper():
     ar = repo.mapper(arabic)
     assert ar.languageName == "Arabic"
