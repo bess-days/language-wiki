@@ -24,37 +24,37 @@ korean = {
 def test_map_families():
      arabic_fam = repo.map_families(arabic)
      korean_fam = repo.map_families(korean)
-     assert arabic_fam == Family.AFRO_ASIATIC
-     assert korean_fam == Family.KOREANIC
+     assert arabic_fam == Family.Afro_Asiatic
+     assert korean_fam == Family.Koreanic
 def test_map_branch():
     arabic_branch = repo.map_branch(arabic)
     korean_branch = repo.map_branch(korean)
-    assert arabic_branch == Branch.SEMITIC
+    assert arabic_branch == Branch.Semitic
     assert korean_branch is None
 
 def test_map_scripts():
     arabic_scripts = repo.map_scripts(arabic)
     korean_scripts = repo.map_scripts(korean)
-    assert arabic_scripts[0] == Script.ARABIC
-    assert  arabic_scripts[1] == Script.SYRIAC
-    assert korean_scripts[0] == Script.HANGUL
+    assert arabic_scripts[0] == Script.Arabic
+    assert  arabic_scripts[1] == Script.Syriac
+    assert korean_scripts[0] == Script.Hangul
 def test_mapper():
     ar = repo.mapper(arabic)
     assert ar.languageName == "Arabic"
     assert ar.iso_code == "ar"
-    assert ar.languageFamily == Family.AFRO_ASIATIC
-    assert ar.languageBranch == Branch.SEMITIC
+    assert ar.languageFamily == Family.Afro_Asiatic
+    assert ar.languageBranch == Branch.Semitic
     assert ar.languageSpeakers == 335
     assert ar.countriesSpoken == 35
-    assert ar.languageScripts == [Script.ARABIC, Script.SYRIAC]
+    assert ar.languageScripts == [Script.Arabic, Script.Syriac]
     ko = repo.mapper(korean)
     assert ko.languageName == "Korean"
     assert ko.iso_code == "ko"
-    assert ko.languageFamily == Family.KOREANIC
+    assert ko.languageFamily == Family.Koreanic
     assert ko.languageBranch is None
     assert ko.languageSpeakers == 82
     assert ko.countriesSpoken == 7
-    assert ko.languageScripts == [Script.HANGUL]
+    assert ko.languageScripts == [Script.Hangul]
 def test_load_languages():
     languages = repo.load_languages()
     assert len(languages) == 31
