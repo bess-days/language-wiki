@@ -57,8 +57,9 @@ jobs:
         run: |
           for file in ./data/*.sql; do
             echo "Running $file"
-            mysql -h 127.0.0.1 -P 3306 -u root -p strongpassword languages < "$file"
+            mysql -h 127.0.0.1 -P 3306 -u root -pstrongpassword languages < "$file"
           done
+
 
       - name: Run tests
         env:
