@@ -5,26 +5,55 @@ on:
     branches: [ master ]    # Run tests when pushing to main
   pull_request:
     branches: [ master ]    # Run tests on PRs to main
-
 jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: strongpassword
+          MYSQL_DATABASE: languages
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'  # or your Python version
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
-    - name: Run tests
-      run: |
-        PYTHONPATH=. pytest --maxfail=1 --disable-warnings -q
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest mysql-connector-python
 
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in {30..0}; do
+            if mysqladmin ping -h 127.0.0.1 -P 3306 --silent; then
+              break
+            fi
+            echo "Waiting for MySQL to start..."
+            sleep 1
+          done
+
+      - name: Run tests
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PORT: 3306
+          MYSQL_USER: root
+          MYSQL_PASSWORD: strongpassword
+          MYSQL_DB: languages
+          PYTHONPATH: .
+        run: |
+          pytest --maxfail=1 --disable-warnings -q
