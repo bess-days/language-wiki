@@ -1,6 +1,6 @@
-CREATE DATABASE languages;
-use languages;
-CREATE TABLE language (
+CREATE DATABASE IF NOT EXISTS languages;
+USE languages;
+CREATE TABLE IF NOT EXISTS language (
     lang_id SMALLINT UNSIGNED AUTO_INCREMENT,
     name VARCHAR(30),
     iso_code CHAR(3),
@@ -10,7 +10,7 @@ CREATE TABLE language (
     countries TINYINT,
     CONSTRAINT pk_lang PRIMARY KEY (lang_id)
 );
-CREATE TABLE scripts (
+CREATE TABLE IF NOT EXISTS scripts(
     lang_id SMALLINT UNSIGNED,
     script VARCHAR(20),
     CONSTRAINT pk_scripts PRIMARY KEY (lang_id, script),
