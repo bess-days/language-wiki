@@ -2,16 +2,22 @@ from db.repository import Repository
 import mysql.connector
 from model.common_enums import Family, Script, Branch
 from model.language import Language_Obj
+import os
+
+
 class MysqlRepository(Repository):
     def __init__(self):
         super().__init__()
+        import os
+
         config = {
-            'user': 'root',
-            'password': 'strongpassword',
-            'host': 'localhost',
-            'port': 32000,
-            'database': 'languages',
+            'user': os.getenv('MYSQL_USER', 'root'),
+            'password': os.getenv('MYSQL_PASSWORD', 'strongpassword'),
+            'host': os.getenv('MYSQL_HOST', 'localhost'),
+            'port': int(os.getenv('MYSQL_PORT', 32000)),  # 32000 default for local Docker setup
+            'database': os.getenv('MYSQL_DB', 'languages'),
         }
+
         self.connection = mysql.connector.connect(**config)
         self.cursor = self.connection.cursor()
     def map_families(self, entry: dict) -> Family:

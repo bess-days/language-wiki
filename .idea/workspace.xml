@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Add test validation on github" />
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="add mysql to testing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mysql_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql_repository.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +216,7 @@
       <workItem from="1753894640088" duration="18338000" />
       <workItem from="1754079996897" duration="6793000" />
       <workItem from="1754167060624" duration="3523000" />
-      <workItem from="1754252815409" duration="698000" />
+      <workItem from="1754252815409" duration="2101000" />
     </task>
     <task id="LOCAL-00001" summary="Created documentation">
       <option name="closed" value="true" />
@@ -279,7 +282,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754253226703</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixing testing">
+      <option name="closed" value="true" />
+      <created>1754253637300</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1754253637300</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add mysql to testing">
+      <option name="closed" value="true" />
+      <created>1754253879696</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1754253879696</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,18 +324,20 @@
     <MESSAGE value="- Change some file names and load languages tests" />
     <MESSAGE value="- Changed how I called the self.cursor" />
     <MESSAGE value="Add test validation on github" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add test validation on github" />
+    <MESSAGE value="fixing testing" />
+    <MESSAGE value="add mysql to testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mysql to testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/language_wiki$week3.coverage" NAME="week3 Coverage Results" MODIFIED="1753222524063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/language_wiki$mysql_repository.coverage" NAME="mysql_repository Coverage Results" MODIFIED="1754169308835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
+    <SUITE FILE_PATH="coverage/language_wiki$mysql_repository.coverage" NAME="mysql_repository Coverage Results" MODIFIED="1754254905782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/language_wiki$language.coverage" NAME="language Coverage Results" MODIFIED="1754098841874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/language_wiki$common_enums.coverage" NAME="common_enums Coverage Results" MODIFIED="1754098838672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/language_wiki$repo_test.coverage" NAME="repo_test Coverage Results" MODIFIED="1753224992080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/language_wiki$objects.coverage" NAME="objects Coverage Results" MODIFIED="1753732586619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/language_wiki$wikipedia.coverage" NAME="wikipedia Coverage Results" MODIFIED="1753217626282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/language_wiki$repository.coverage" NAME="repository Coverage Results" MODIFIED="1754098835763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
-    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754169317589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754254890027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
