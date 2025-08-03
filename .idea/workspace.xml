@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="add mysql to testing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mysql_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql_repository.py" afterDir="false" />
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="change to master branch">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/tests.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +215,7 @@
       <workItem from="1753894640088" duration="18338000" />
       <workItem from="1754079996897" duration="6793000" />
       <workItem from="1754167060624" duration="3523000" />
-      <workItem from="1754252815409" duration="2101000" />
+      <workItem from="1754252815409" duration="2478000" />
     </task>
     <task id="LOCAL-00001" summary="Created documentation">
       <option name="closed" value="true" />
@@ -298,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754253879696</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="More adjustments to get testing">
+      <option name="closed" value="true" />
+      <created>1754254998742</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1754254998742</updated>
+    </task>
+    <task id="LOCAL-00012" summary="change to master branch">
+      <option name="closed" value="true" />
+      <created>1754255048247</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1754255048247</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +341,9 @@
     <MESSAGE value="Add test validation on github" />
     <MESSAGE value="fixing testing" />
     <MESSAGE value="add mysql to testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mysql to testing" />
+    <MESSAGE value="More adjustments to get testing" />
+    <MESSAGE value="change to master branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="change to master branch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
