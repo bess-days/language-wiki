@@ -3,10 +3,10 @@ from model.language import *
 
 
 
-LANGUAGES = [Language_Obj("French", "fr", Family.Indo_European, Branch.Romance,  51, 312,  [Script.Latin]),
-             Language_Obj("Arabic", "ar", Family.Afro_Asiatic, Branch.Semitic,35, 325,  [Script.Arabic, Script.Syriac]),
-             Language_Obj("Javanese", "jv", Family.Austronesian, Branch.Malayo_Polynesian,1,  69,  [Script.Javanese, Script.Syriac.Latin]),
-             Language_Obj("Spanish", "es", Family.Indo_European, Branch.Romance, 36, 558, [Script.Latin])]
+LANGUAGES = [Language_Obj("French", "fr", Family.INDO_EUROPEAN, Branch.ROMANCE,  51, 312,  [Script.LATIN]),
+             Language_Obj("Arabic", "ar", Family.AFRO_ASIATIC, Branch.SEMITIC,35, 325,  [Script.ARABIC, Script.SYRIAC]),
+             Language_Obj("Javanese", "jv", Family.AUSTRONESIAN, Branch.MALAYO_POLYNESIAN,1,  69,  [Script.JAVANESE, Script.LATIN]),
+             Language_Obj("Spanish", "es", Family.INDO_EUROPEAN, Branch.ROMANCE, 36, 558, [Script.LATIN])]
 
 
 def test_languages():
@@ -22,13 +22,13 @@ def test_iso_codes():
     assert LANGUAGES[2].iso_code == "jv"
     assert LANGUAGES[3].iso_code == "es"
 def test_families():
-    assert LANGUAGES[0].languageFamily == Family.Indo_European
-    assert LANGUAGES[1].languageFamily == Family.Afro_Asiatic
-    assert LANGUAGES[2].languageFamily == Family.Austronesian
-    assert LANGUAGES[3].languageFamily == Family.Indo_European
+    assert LANGUAGES[0].languageFamily == Family.INDO_EUROPEAN
+    assert LANGUAGES[1].languageFamily == Family.AFRO_ASIATIC
+    assert LANGUAGES[2].languageFamily == Family.AUSTRONESIAN
+    assert LANGUAGES[3].languageFamily == Family.INDO_EUROPEAN
 def test_scripts():
-    assert LANGUAGES[0].languageScripts == [Script.Latin]
-    assert LANGUAGES[1].languageScripts == [Script.Arabic, Script.Syriac]
-    assert LANGUAGES[2].languageScripts ==[Script.Javanese, Script.Syriac.Latin]
-    assert LANGUAGES[3].languageScripts == [Script.Latin]
+    assert LANGUAGES[0].languageScripts == [Script.LATIN]
+    assert LANGUAGES[1].languageScripts == [Script.ARABIC, Script.SYRIAC]
+    assert LANGUAGES[2].languageScripts == [Script.JAVANESE, Script.LATIN]
+    assert LANGUAGES[3].languageScripts == [Script.LATIN]
 
