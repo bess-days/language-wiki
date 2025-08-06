@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Reverted changes because I realized about the enum value property (fixed change)">
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mysql_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/language.py" afterDir="false" />
-    </list>
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,7 +222,7 @@
       <workItem from="1754167060624" duration="3523000" />
       <workItem from="1754252815409" duration="5072000" />
       <workItem from="1754262218384" duration="6164000" />
-      <workItem from="1754343086469" duration="6535000" />
+      <workItem from="1754343086469" duration="7149000" />
     </task>
     <task id="LOCAL-00001" summary="Created documentation">
       <option name="closed" value="true" />
@@ -383,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754261849053</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py">
+      <option name="closed" value="true" />
+      <created>1754514035948</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1754514035948</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +421,8 @@
     <MESSAGE value="Yay it works with Github Actions" />
     <MESSAGE value="Reverted changes because I realized about the enum value property" />
     <MESSAGE value="Reverted changes because I realized about the enum value property (fixed change)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reverted changes because I realized about the enum value property (fixed change)" />
+    <MESSAGE value="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -433,6 +435,6 @@
     <SUITE FILE_PATH="coverage/language_wiki$services.coverage" NAME="services Coverage Results" MODIFIED="1754511577225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/language_wiki$wikipedia.coverage" NAME="wikipedia Coverage Results" MODIFIED="1753217626282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/language_wiki$repository.coverage" NAME="repository Coverage Results" MODIFIED="1754098835763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
-    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754513162246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754513948285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
