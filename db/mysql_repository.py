@@ -96,32 +96,16 @@ class MysqlRepository(Repository):
             scripts=self.map_scripts(entry),
         )
         return language_obj
+
     def load_languages(self) -> list[Language_Obj]:
         sql = 'SELECT * FROM language ORDER BY name'
         self.cursor.execute(sql)
-        entries = [{
-            'lang_id': lang_id,
-            'name': name,
-            'iso_code': iso_code,
-            'family': family,
-            'branch': branch,
-            'speakers': speakers,
-            'countries': countries,
-            'scripts': []
-        }
-        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        sql2 = 'SELECT lang_id, script FROM scripts'
-        self.cursor.execute(sql2)
-        entries_dict = {entry['lang_id']: entry for entry in entries}
-        for lang_id, script in self.cursor:
-            if lang_id in entries_dict:
-                entries_dict[lang_id]['scripts'].append(script)
-        language_repo = [self.mapper(entry) for entry in entries_dict.values()]
-        return language_repo
-    def query_language(self, query: str):
-            sql = 'SELECT * FROM language WHERE name = %s ORDER BY name'
-            self.cursor.execute(sql, (query,))  # pass as tuple
-            entries = [{
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor:
+            self.cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in self.cursor.fetchall()]
+            entry = {
                 'lang_id': lang_id,
                 'name': name,
                 'iso_code': iso_code,
@@ -129,104 +113,144 @@ class MysqlRepository(Repository):
                 'branch': branch,
                 'speakers': speakers,
                 'countries': countries,
-                'scripts': []
+                'scripts': scripts
             }
-                for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-            sql2 = 'SELECT lang_id, script FROM scripts'
-            self.cursor.execute(sql2)
-            entries_dict = {entry['lang_id']: entry for entry in entries}
-            for lang_id, script in self.cursor:
-                if lang_id in entries_dict:
-                    entries_dict[lang_id]['scripts'].append(script)
-            language_object = [self.mapper(entry) for entry in entries_dict.values()]
-            return language_object
+            languages.append(self.mapper(entry))
+        return languages
+
+    def query_language(self, query: str):
+        sql = 'SELECT * FROM language WHERE name = %s ORDER BY name'
+        self.cursor.execute(sql, (query,))
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor:
+            self.cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in self.cursor.fetchall()]
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
+        return languages
 
     def query_family(self, query: str):
-        sql = f'SELECT * FROM language WHERE family = %s ORDER BY name'
+        sql = 'SELECT * FROM language WHERE family = %s ORDER BY name'
         self.cursor.execute(sql, (query,))
-        entries = [{
-            'lang_id': lang_id,
-            'name': name,
-            'iso_code': iso_code,
-            'family': family,
-            'branch': branch,
-            'speakers': speakers,
-            'countries': countries,
-            'scripts': []
-        }
-            for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        sql2 = 'SELECT lang_id, script FROM scripts'
-        self.cursor.execute(sql2)
-        entries_dict = {entry['lang_id']: entry for entry in entries}
-        for lang_id, script in self.cursor:
-            if lang_id in entries_dict:
-                entries_dict[lang_id]['scripts'].append(script)
-        family_object = [self.mapper(entry) for entry in entries_dict.values()]
-        return family_object
-    def query_branch(self, query: str):
-        sql = f'SELECT * FROM language WHERE branch = %s ORDER BY name'
-        self.cursor.execute(sql, (query,))
-        entries = [{
-            'lang_id': lang_id,
-            'name': name,
-            'iso_code': iso_code,
-            'family': family,
-            'branch': branch,
-            'speakers': speakers,
-            'countries': countries,
-            'scripts': []
-        }
-            for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        sql2 = 'SELECT lang_id, script FROM scripts'
-        self.cursor.execute(sql2)
-        entries_dict = {entry['lang_id']: entry for entry in entries}
-        for lang_id, script in self.cursor:
-            if lang_id in entries_dict:
-                entries_dict[lang_id]['scripts'].append(script)
-        branch_object = [self.mapper(entry) for entry in entries_dict.values()]
-        return branch_object
-    def query_speakers(self, min: int, max: int):
-        sql = 'SELECT * FROM language WHERE speakers between %s and %s ORDER BY name'
-        self.cursor.execute(sql, (min, max))
-        entries = [{
-            'lang_id': lang_id,
-            'name': name,
-            'iso_code': iso_code,
-            'family': family,
-            'branch': branch,
-            'speakers': speakers,
-            'countries': countries,
-            'scripts': []
-        }
-            for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        sql2 = 'SELECT lang_id, script FROM scripts'
-        self.cursor.execute(sql2)
-        entries_dict = {entry['lang_id']: entry for entry in entries}
-        for lang_id, script in self.cursor:
-            if lang_id in entries_dict:
-                entries_dict[lang_id]['scripts'].append(script)
-        speaker_object = [self.mapper(entry) for entry in entries_dict.values()]
-        return speaker_object
-    def query_countries(self, min: int, max: int):
-        sql = 'SELECT * FROM language WHERE countries between %s and %s ORDER BY name'
-        self.cursor.execute(sql, (min, max))
-        entries = [{
-            'lang_id': lang_id,
-            'name': name,
-            'iso_code': iso_code,
-            'family': family,
-            'branch': branch,
-            'speakers': speakers,
-            'countries': countries,
-            'scripts': []
-        }
-            for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor]
-        sql2 = 'SELECT lang_id, script FROM scripts'
-        self.cursor.execute(sql2)
-        entries_dict = {entry['lang_id']: entry for entry in entries}
-        for lang_id, script in self.cursor:
-            if lang_id in entries_dict:
-                entries_dict[lang_id]['scripts'].append(script)
-        countries_object = [self.mapper(entry) for entry in entries_dict.values()]
-        return countries_object
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
 
+        return languages
+
+    def query_branch(self, query: str):
+        sql = 'SELECT * FROM language WHERE branch = %s ORDER BY name'
+        self.cursor.execute(sql, (query,))
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
+
+        return languages
+    def query_speakers(self, min: int, max: int):
+        sql = 'SELECT * FROM language WHERE speakers BETWEEN %s AND %s ORDER BY name'
+        self.cursor.execute(sql, (min, max))
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
+
+        return languages
+    def query_countries(self, min: int, max: int):
+        sql = 'SELECT * FROM language WHERE countries BETWEEN %s AND %s ORDER BY name'
+        self.cursor.execute(sql, (min, max))
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
+        return languages
+    def query_scripts(self, query: str):
+        sql = "SELECT l.lang_id, l.name, l.iso_code, l.family, l.branch, l.speakers, l.countries FROM language l INNER JOIN scripts s ON l.lang_id = s.lang_id WHERE s.script = %s ORDER BY l.name"
+
+        self.cursor.execute(sql, (query,))
+        languages = []
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
+                'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
+            entry = {
+                'lang_id': lang_id,
+                'name': name,
+                'iso_code': iso_code,
+                'family': family,
+                'branch': branch,
+                'speakers': speakers,
+                'countries': countries,
+                'scripts': scripts
+            }
+            languages.append(self.mapper(entry))
+        return languages

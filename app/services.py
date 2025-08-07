@@ -7,54 +7,35 @@ class Services:
     # Use case one to search for a language
     def search_lang(self, query: str):
         res = self.repo.query_language(query)
-        results = []
-        for r in res:
-            results.append(r.get_json())
-        return results
+        return [r.get_json() for r in res]
     # Use case 2 to search by family
     def search_family(self, query: str):
         res = self.repo.query_family(query)
-        results = []
-        for r in res:
-            results.append(r.get_json())
-        return results
+        return [r.get_json() for r in res]
     # Use case 3 to search by branch
     def search_branch(self, query: str):
         res = self.repo.query_branch(query)
-        results = []
-        for r in res:
-            results.append(r.get_json())
-        return results
+        return [r.get_json() for r in res]
     # Use case 4 to search by speakers
     def search_speakers(self, min: int, max: int):
-        results = []
         if min < 52:
             min = 52
         if max > 1528:
             max = 1528
         res = self.repo.query_speakers(min, max)
-        for r in res:
-            results.append(r.get_json())
-        return results
+        return [r.get_json() for r in res]
     # Use case 5 to search by countries
     def search_countries(self, min: int, max: int):
-        results = []
         if min < 1:
             min = 1
         if max > 74:
             max = 74
         res = self.repo.query_countries(min, max)
-        for r in res:
-            results.append(r.get_json())
-        return results
-    # Use case 6 to search by scripts
+        return [r.get_json() for r in res]
+    # Use case 6 to search by script
     def search_scripts(self, query: str):
-        results = []
-        languages  = self.repo.load_languages()
-        for lang in languages:
-            if query in lang.get_json()["Scripts"]:
-                results.append(lang.get_json())
-        return results
+        res = self.repo.query_scripts(query)
+        return [r.get_json() for r in res]
 
 
 
