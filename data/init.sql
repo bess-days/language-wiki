@@ -92,13 +92,5 @@ VALUES
     (31, 'Devanagari');
 
 
-SELECT * FROM language;
-
-SELECT s.script FROM scripts s
-INNER JOIN language l ON l.lang_id = s.lang_id
-ORDER BY l.lang_id;
-
-
-
 
 

@@ -101,10 +101,12 @@ class MysqlRepository(Repository):
         sql = 'SELECT * FROM language ORDER BY name'
         self.cursor.execute(sql)
         languages = []
-        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor:
-            self.cursor.execute(
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
                 'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
-            scripts = [row[0] for row in self.cursor.fetchall()]
+            scripts = [row[0] for row in script_cursor.fetchall()]
+            script_cursor.close()
             entry = {
                 'lang_id': lang_id,
                 'name': name,
@@ -118,14 +120,15 @@ class MysqlRepository(Repository):
             languages.append(self.mapper(entry))
         return languages
 
-    def query_language(self, query: str):
-        sql = 'SELECT * FROM language WHERE name = %s ORDER BY name'
+    def languages_by_name(self, query: str) -> list[Language_Obj]:
+        sql = 'SELECT * FROM language WHERE name =  %s ORDER BY name'
         self.cursor.execute(sql, (query,))
         languages = []
-        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor:
-            self.cursor.execute(
+        for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
+            script_cursor = self.connection.cursor()
+            script_cursor.execute(
                 'SELECT script FROM scripts WHERE lang_id = %s', (lang_id,))
-            scripts = [row[0] for row in self.cursor.fetchall()]
+            scripts = [row[0] for row in script_cursor.fetchall()]
             entry = {
                 'lang_id': lang_id,
                 'name': name,
@@ -139,7 +142,7 @@ class MysqlRepository(Repository):
             languages.append(self.mapper(entry))
         return languages
 
-    def query_family(self, query: str):
+    def languages_by_family(self, query: str) -> list[Language_Obj]:
         sql = 'SELECT * FROM language WHERE family = %s ORDER BY name'
         self.cursor.execute(sql, (query,))
         languages = []
@@ -163,7 +166,7 @@ class MysqlRepository(Repository):
 
         return languages
 
-    def query_branch(self, query: str):
+    def languages_by_branch(self, query: str) -> list[Language_Obj]:
         sql = 'SELECT * FROM language WHERE branch = %s ORDER BY name'
         self.cursor.execute(sql, (query,))
         languages = []
@@ -186,7 +189,7 @@ class MysqlRepository(Repository):
             languages.append(self.mapper(entry))
 
         return languages
-    def query_speakers(self, min: int, max: int):
+    def languages_by_speakers(self, min: int, max: int):
         sql = 'SELECT * FROM language WHERE speakers BETWEEN %s AND %s ORDER BY name'
         self.cursor.execute(sql, (min, max))
         languages = []
@@ -209,7 +212,7 @@ class MysqlRepository(Repository):
             languages.append(self.mapper(entry))
 
         return languages
-    def query_countries(self, min: int, max: int):
+    def languages_by_countries(self, min: int, max: int):
         sql = 'SELECT * FROM language WHERE countries BETWEEN %s AND %s ORDER BY name'
         self.cursor.execute(sql, (min, max))
         languages = []
@@ -231,9 +234,8 @@ class MysqlRepository(Repository):
             }
             languages.append(self.mapper(entry))
         return languages
-    def query_scripts(self, query: str):
+    def languages_by_scripts(self, query: str):
         sql = "SELECT l.lang_id, l.name, l.iso_code, l.family, l.branch, l.speakers, l.countries FROM language l INNER JOIN scripts s ON l.lang_id = s.lang_id WHERE s.script = %s ORDER BY l.name"
-
         self.cursor.execute(sql, (query,))
         languages = []
         for (lang_id, name, iso_code, family, branch, speakers, countries) in self.cursor.fetchall():
