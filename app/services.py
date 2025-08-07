@@ -4,24 +4,28 @@ from db.mysql_repository import *
 class Services:
     def __init__(self):
         self.repo = db.mysql_repository.MysqlRepository()
+    # Use case one to search for a language
     def search_lang(self, query: str):
         res = self.repo.query_language(query)
         results = []
         for r in res:
             results.append(r.get_json())
         return results
+    # Use case 2 to search by family
     def search_family(self, query: str):
         res = self.repo.query_family(query)
         results = []
         for r in res:
             results.append(r.get_json())
         return results
+    # Use case 3 to search by branch
     def search_branch(self, query: str):
         res = self.repo.query_branch(query)
         results = []
         for r in res:
             results.append(r.get_json())
         return results
+    # Use case 4 to search by speakers
     def search_speakers(self, min: int, max: int):
         results = []
         if min < 52:
@@ -32,7 +36,7 @@ class Services:
         for r in res:
             results.append(r.get_json())
         return results
-
+    # Use case 5 to search by countries
     def search_countries(self, min: int, max: int):
         results = []
         if min < 1:
@@ -43,6 +47,7 @@ class Services:
         for r in res:
             results.append(r.get_json())
         return results
+    # Use case 6 to search by scripts
     def search_scripts(self, query: str):
         results = []
         languages  = self.repo.load_languages()
