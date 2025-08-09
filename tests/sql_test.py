@@ -1,3 +1,5 @@
+from numpy.f2py.symbolic import Language
+
 from db.mysql_repository import *
 repo = MysqlRepository()
 arabic = {
@@ -57,4 +59,7 @@ def test_mapper():
     assert ko.languageScripts == [Script.HANGUL]
 def test_load_languages():
     languages = repo.load_languages()
+    assert type(languages) == list
+    for lang in languages:
+        assert type(lang) == Language_Obj
     assert len(languages) == 31
