@@ -65,4 +65,4 @@ def get_script():
     results = services.search_by_scripts(query)
     return jsonify(results)
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
