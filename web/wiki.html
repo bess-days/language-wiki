@@ -44,7 +44,7 @@
     function form_handler(formId, field, endpoint, response) {
     const form = document.getElementById(formId)
     event.preventDefault();
-    const data = new FormData(event.target);
+    const data = new FormData(form);
     const value = data.get(field);
 
     const response = await fetch(`http://localhost:5000/${endpoint}?{field}=${encodeURIComponent(value)}`, {
