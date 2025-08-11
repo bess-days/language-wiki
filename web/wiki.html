@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lang Bot</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
         <label for="lang">Language: </label>
         <input id="lang" name="lang" type="text"/>
     </div>
-    <button type="submit" value="lang">Submit</button>
+    <button type="submit" value="lang" class="submit">Submit</button>
 </form>
 <h2>Select a language family: </h2>
 <pre id="lang_response"></pre>
@@ -41,6 +42,7 @@
 </form>
 <h2>Family Entry: </h2>
 <pre id="family_response"></pre>
+<h2>Script Entry: </h2>
 <form id="script_form">
     <div class="input-group">
         <label for="script">Script: </label>
@@ -49,9 +51,9 @@
             <option value="Arabic">Arabic</option>
             <option value="Baybayin">Baybayin</option>
             <option value="Bengali">Bengali</option>
-            <option value="Devanagari">Devanagari</option>
             <option value="Chinese">Chinese</option>
             <option value="Cyrillic">Cyrillic</option>
+            <option value="Devanagari">Devanagari</option>
             <option value="Gujarati">Gujarati</option>
             <option value="Hangul">Hangul</option>
             <option value="Kana">Kana</option>

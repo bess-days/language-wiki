@@ -10,7 +10,7 @@ class Language_Obj:
         self.languageSpeakers = speakers
         self.languageScripts = scripts
     def get_json(self):
-        return {"Name": self.languageName, "ISO-Code": self.iso_code, "Family": self.languageFamily.value[1],"Branch":self.languageBranch.value[1]  if self.languageBranch else None,  "Speakers": self.languageSpeakers, "Countries": self.countriesSpoken,"Scripts": [s.value[1] for s in self.languageScripts] }
+        return {self.languageName: {"Name": self.languageName, "ISO-Code": self.iso_code, "Family": self.languageFamily.value[1],"Branch":self.languageBranch.value[1]  if self.languageBranch else None,  "Speakers": self.languageSpeakers, "Countries": self.countriesSpoken,"Scripts": [s.value[1] for s in self.languageScripts]} }
 
     def __str__(self):
         return f"{self.languageName, self.languageFamily, self.languageBranch, self.languageSpeakers, self.countriesSpoken, self.languageScripts}"
