@@ -10,7 +10,7 @@
 
 <h2>Parse a word</h2>
 
-<form id="form1">
+<form id="lang_form">
     <div class="input-group">
         <label for="lang">Word: </label>
         <input id="lang" name="lang" type="text"/>
@@ -18,11 +18,12 @@
     <button type="submit" value="lang">Submit</button>
 </form>
 <h2>Language Entry: </h2>
-<pre id="response"></pre>
-<form id="form2">
+<pre id="lang_response"></pre>
+<form id="family_form">
     <div class="input-group">
         <label for="family">Language: </label>
         <select id="family" name="family">
+            <option disabled>--Select a Language Family--</option>
             <option value="Afro-Asiatic">Afro-Asiatic</option>
             <option value="Asiatic">Asiatic</option>
             <option value="Austronesian">Austronesian</option>
@@ -38,17 +39,15 @@
     </div>
     <button type="submit" value="family">Submit</button>
 </form>
-<h2>Families: </h2>
-<pre id="response2"></pre>
-</body>
 
 <script>
-async function handleSubmit1(event) {
+    function form_handler(formId, field, endpoint, response) {
+    const form = document.getElementById(formId)
     event.preventDefault();
     const data = new FormData(event.target);
-    const lang = data.get("lang");
+    const value = data.get(field);
 
-    const response = await fetch(`http://localhost:5000/search_lang?lang=${encodeURIComponent(lang)}`, {
+    const response = await fetch(`http://localhost:5000/${endpoint}?{field}=${encodeURIComponent(value)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -57,31 +56,10 @@ async function handleSubmit1(event) {
 
     const myJson = await response.json();
     console.log(myJson);
-    document.getElementById('response').textContent = JSON.stringify(myJson, undefined, 2);
+    document.getElementById(response).textContent = JSON.stringify(myJson, undefined, 2);
 }
-
-const form1 = document.getElementById("form1");
-form1.addEventListener("submit", handleSubmit1);
-    async function handleSubmit2(event) {
-    event.preventDefault();
-
-    const data = new FormData(event.target);
-    const family = data.get("family");
-
-    const response = await fetch(`http://localhost:5000/search_family?family=${encodeURIComponent(family)}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
-
-    const myJson = await response.json();
-    console.log(myJson);
-    document.getElementById('response2').textContent = JSON.stringify(myJson, undefined, 2);
-}
-
-const form2 = document.getElementById("form2");
-form2.addEventListener("submit", handleSubmit2);
+    formHandler("lang_form", "lang", "search_lang", "lang_response")
+    formHandler("family_form", "family", "search_family", "family_response")
 </script>
-
+</body>
 </html>
