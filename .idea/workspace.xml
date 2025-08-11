@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="added test for type in the sql testing load_languages()">
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/new.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/wiki.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mysql_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/language.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,56 +57,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for repo_test.test_family.executor": "Run",
-    "Python tests.Python tests for repo_test.test_language_names.executor": "Run",
-    "Python tests.Python tests for repo_test.test_languages.executor": "Run",
-    "Python tests.Python tests for repo_test.test_script.executor": "Run",
-    "Python tests.Python tests for services_test.test_branch.executor": "Run",
-    "Python tests.Python tests for services_test.test_family.executor": "Run",
-    "Python tests.Python tests for services_test.test_language.executor": "Run",
-    "Python tests.Python tests for services_test.test_speakers.executor": "Run",
-    "Python tests.Python tests for sql_test.test_load_languages.executor": "Run",
-    "Python tests.Python tests in repo_test.py.executor": "Run",
-    "Python tests.Python tests in services_test.py.executor": "Run",
-    "Python tests.Python tests in sql_test.py.executor": "Run",
-    "Python.common_enums.executor": "Run",
-    "Python.language.executor": "Run",
-    "Python.mysql_repository.executor": "Run",
-    "Python.objects.executor": "Run",
-    "Python.repo_test.executor": "Run",
-    "Python.repository.executor": "Run",
-    "Python.services.executor": "Run",
-    "Python.testing.executor": "Run",
-    "Python.week3.executor": "Run",
-    "Python.wikipedia.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for repo_test.test_family.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for repo_test.test_language_names.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for repo_test.test_languages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for repo_test.test_script.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for services_test.test_branch.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for services_test.test_family.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for services_test.test_language.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for services_test.test_speakers.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for sql_test.test_load_languages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in repo_test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in services_test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in sql_test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.common_enums.executor&quot;: &quot;Run&quot;,
+    &quot;Python.language.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mysql_repository.executor&quot;: &quot;Run&quot;,
+    &quot;Python.objects.executor&quot;: &quot;Run&quot;,
+    &quot;Python.repo_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.repository.executor&quot;: &quot;Run&quot;,
+    &quot;Python.services.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.week3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wikipedia.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "RunConfigurationTargetLRU": [
-      "6514f753-4d03-4d73-9702-afe20e56acda"
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;6514f753-4d03-4d73-9702-afe20e56acda&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/model" />
@@ -102,21 +115,27 @@
       <recent name="$PROJECT_DIR$/doc" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Python tests for repo_test.test_family" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="language-wiki" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;repo_test.test_family&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for services_test.test_branch" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -185,18 +204,17 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python tests.Python tests for services_test.test_speakers" />
-        <item itemvalue="Python tests.Python tests for services_test.test_family" />
         <item itemvalue="Python tests.Python tests for services_test.test_branch" />
+        <item itemvalue="Python tests.Python tests for services_test.test_family" />
         <item itemvalue="Python tests.Python tests for services_test.test_language" />
-        <item itemvalue="Python tests.Python tests for repo_test.test_family" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.74" />
         <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
@@ -222,7 +240,7 @@
       <workItem from="1754167060624" duration="3523000" />
       <workItem from="1754252815409" duration="5072000" />
       <workItem from="1754262218384" duration="6164000" />
-      <workItem from="1754343086469" duration="7149000" />
+      <workItem from="1754343086469" duration="16648000" />
     </task>
     <task id="LOCAL-00001" summary="Created documentation">
       <option name="closed" value="true" />
@@ -384,7 +402,55 @@
       <option name="project" value="LOCAL" />
       <updated>1754514035948</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="removed old objects model">
+      <option name="closed" value="true" />
+      <created>1754514115705</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1754514115705</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Updated use cases and comments">
+      <option name="closed" value="true" />
+      <created>1754600878562</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1754600878562</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changing mysql_repository.py functions based on feedback about two seperate queries&#10;Adjusted tests to add type assertions">
+      <option name="closed" value="true" />
+      <created>1754605928139</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1754605928139</updated>
+    </task>
+    <task id="LOCAL-00024" summary="renaming conventions and adding abstract methods">
+      <option name="closed" value="true" />
+      <created>1754607310176</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1754607310176</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Editing the readme">
+      <option name="closed" value="true" />
+      <created>1754708323382</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1754708323382</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added test for type in the sql testing load_languages()">
+      <option name="closed" value="true" />
+      <created>1754766390107</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1754766390107</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +468,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created documentation" />
     <MESSAGE value="-Added Docker&#10;- Followed ethics when scraping&#10;- Started building the SQL db" />
     <MESSAGE value="- Exported to csv so don't have to run each time to grab info" />
     <MESSAGE value="- Added documentation for new scripts scraping" />
@@ -422,19 +487,25 @@
     <MESSAGE value="Reverted changes because I realized about the enum value property" />
     <MESSAGE value="Reverted changes because I realized about the enum value property (fixed change)" />
     <MESSAGE value="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added query functions for the mysql_repository.py, added service search functions in services.py, added get_json for language.py, and tests for services_test.py" />
+    <MESSAGE value="removed old objects model" />
+    <MESSAGE value="Updated use cases and comments" />
+    <MESSAGE value="Changing mysql_repository.py functions based on feedback about two seperate queries&#10;Adjusted tests to add type assertions" />
+    <MESSAGE value="renaming conventions and adding abstract methods" />
+    <MESSAGE value="Editing the readme" />
+    <MESSAGE value="added test for type in the sql testing load_languages()" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test for type in the sql testing load_languages()" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/language_wiki$week3.coverage" NAME="week3 Coverage Results" MODIFIED="1753222524063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/language_wiki$mysql_repository.coverage" NAME="mysql_repository Coverage Results" MODIFIED="1754339431260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
+    <SUITE FILE_PATH="coverage/language_wiki$mysql_repository.coverage" NAME="mysql_repository Coverage Results" MODIFIED="1754606397289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/language_wiki$language.coverage" NAME="language Coverage Results" MODIFIED="1754339426994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/language_wiki$common_enums.coverage" NAME="common_enums Coverage Results" MODIFIED="1754260231185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/language_wiki$repo_test.coverage" NAME="repo_test Coverage Results" MODIFIED="1753224992080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/language_wiki$objects.coverage" NAME="objects Coverage Results" MODIFIED="1753732586619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/language_wiki$services.coverage" NAME="services Coverage Results" MODIFIED="1754511577225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/language_wiki$services.coverage" NAME="services Coverage Results" MODIFIED="1754606987771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/language_wiki$wikipedia.coverage" NAME="wikipedia Coverage Results" MODIFIED="1753217626282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/language_wiki$repository.coverage" NAME="repository Coverage Results" MODIFIED="1754098835763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
-    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754513948285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/language_wiki$repository.coverage" NAME="repository Coverage Results" MODIFIED="1754607045580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
+    <SUITE FILE_PATH="coverage/language_wiki$.coverage" NAME=" Coverage Results" MODIFIED="1754607265610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

@@ -3,7 +3,12 @@ from db.mysql_repository import *
 class Services:
     def __init__(self):
         self.repo = MysqlRepository()
+
+    def load_languages_json(self) -> list[dict]:
+        languages = self.repo.load_languages()
+        return [lang.get_json() for lang in languages]
     # Use case one to search for a language
+
     def search_by_lang(self, query: str) -> list[dict]:
         res = self.repo.languages_by_name(query)
         return [r.get_json() for r in res]

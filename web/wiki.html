@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lang Bot</title>
+</head>
+<body>
+
+<h1>Sanskrit Bot</h1>
+
+<h2>Parse a word</h2>
+
+<form id="form1">
+    <div class="input-group">
+        <label for="lang">Word: </label>
+        <input id="lang" name="lang" type="text"/>
+    </div>
+    <button type="submit" value="lang">Submit</button>
+</form>
+<h2>Response: </h2>
+<pre id="response"></pre>
+</body>
+
+<script>
+async function handleSubmit1(event) {
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+    const value = Object.fromEntries(data.entries());
+    value.lang = data.get("lang");
+    console.log({value});
+
+    const response = await fetch('http://localhost:5000/search_lang', {
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+            'Content-Type': 'application/json',
+            }
+        });
+    const myJson = await response.json();
+    console.log(myJson);
+    document.getElementById('response').textContent = JSON.stringify(myJson, undefined, 2);
+}
+const form1 = document.getElementById("form1");
+form1.addEventListener("submit", async (e) => handleSubmit1(e), false);
+</script>
+
+</html>

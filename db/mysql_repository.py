@@ -120,6 +120,9 @@ class MysqlRepository(Repository):
             languages.append(self.mapper(entry))
         return languages
 
+
+
+
     def languages_by_name(self, query: str) -> list[Language_Obj]:
         sql = 'SELECT * FROM language WHERE name =  %s ORDER BY name'
         self.cursor.execute(sql, (query,))
