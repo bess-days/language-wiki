@@ -66,7 +66,7 @@ form1.addEventListener("submit", handleSubmit1);
     event.preventDefault();
 
     const data = new FormData(event.target);
-    const lang = data.get("family");
+    const family = data.get("family");
 
     const response = await fetch(`http://localhost:5000/search_family?family=${encodeURIComponent(family)}`, {
         method: 'GET',
