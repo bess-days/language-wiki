@@ -45,12 +45,12 @@ def web() -> str:
 def get_languages():
     return jsonify({'languages': services.load_languages_json()})
 
-@app.route("/search_lang", methods=["POST"])
+@app.route("/search_lang", methods=["GET"])
 @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
 def get_lang():
-    data = request.get_json()
-    app.logger.info(f"/lang - Got Language: {data}")
-    s = services.search_by_lang(data.get("lang"))
-    return jsonify({'languages': s})
+    query = request.args.get("lang")
+    results = services.search_by_lang(query)
+    return jsonify(results)
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

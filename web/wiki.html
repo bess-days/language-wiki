@@ -31,7 +31,7 @@ async function handleSubmit1(event) {
     console.log({value});
 
     const response = await fetch('http://localhost:5000/search_lang', {
-        method: 'POST',
+        method: 'GET',
         body: JSON.stringify(value),
         headers: {
             'Content-Type': 'application/json',
