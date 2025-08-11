@@ -52,5 +52,17 @@ def get_lang():
     results = services.search_by_lang(query)
     return jsonify(results)
 
+@app.route("/search_family", methods=["GET"])
+@cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+def get_family():
+    query = request.args.get("family")
+    results = services.search_by_family(query)
+    return jsonify(results)
+@app.route("/search_script", methods=["GET"])
+@cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+def get_script():
+    query = request.args.get("script")
+    results = services.search_by_scripts(query)
+    return jsonify(results)
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
