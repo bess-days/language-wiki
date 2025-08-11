@@ -4,10 +4,82 @@
     <meta charset="UTF-8">
     <title>Lang Bot</title>
 </head>
-<body>
 
-<h1>Sanskrit Bot</h1>
+<h1>Lang Wiki API</h1>
 
-<h2>Parse a word</h2>
-</body>
+<h2>Methods</h2>
+
+<h3>Search by language</h3>
+<div>
+    <p>Endpoint: http://localhost:5000/search_lang</p>
+    <p>Request type: Get</p>
+    <p>Request body: "lang" field name </p>
+    <pre>
+  http://localhost:5000/search_lang?lang=French
+</pre>
+    <p>Response: JSON with parse details, e.g. </p>
+    <pre>
+    [
+  {
+    "Branch": "Romance",
+    "Countries": 51,
+    "Family": "Indo-European",
+    "ISO-Code": "fr",
+    "Name": "French",
+    "Scripts": [
+      "Latin"
+    ],
+    "Speakers": 312
+  }
+]
+</pre>
+    <h3>Search by Language Family</h3>
+    <div>
+        <p>Endpoint: http://localhost:5000/search_family</p>
+        <p>Request type: Get</p>
+        <p>Request body: "family" field name </p>
+        <pre>
+  http://localhost:5000/search_family?family=Dravidian
+</pre>
+        <p>Response: JSON with languages that match query. </p>
+        <pre>
+   [
+  {
+    "Branch": "South",
+    "Countries": 1,
+    "Family": "Dravidian",
+    "ISO-Code": "kn",
+    "Name": "Kannada",
+    "Scripts": [
+      "Kannada"
+    ],
+    "Speakers": 59
+  },
+  {
+    "Branch": "South",
+    "Countries": 6,
+    "Family": "Dravidian",
+    "ISO-Code": "ta",
+    "Name": "Tamil",
+    "Scripts": [
+      "Tamil"
+    ],
+    "Speakers": 86
+  },
+  {
+    "Branch": "South-Central",
+    "Countries": 1,
+    "Family": "Dravidian",
+    "ISO-Code": "te",
+    "Name": "Telugu",
+    "Scripts": [
+      "Telugu"
+    ],
+    "Speakers": 96
+  }
+]
+
+</pre>
+    </div>
+</div>
 </html>

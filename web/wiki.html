@@ -6,26 +6,26 @@
 </head>
 <body>
 
-<h1>Sanskrit Bot</h1>
+<h1>Lang Bot</h1>
 
-<h2>Parse a word</h2>
+<h2>Enter a language name:</h2>
 
 <form id="lang_form">
     <div class="input-group">
-        <label for="lang">Word: </label>
+        <label for="lang">Language: </label>
         <input id="lang" name="lang" type="text"/>
     </div>
     <button type="submit" value="lang">Submit</button>
 </form>
-<h2>Language Entry: </h2>
+<h2>Select a language family: </h2>
 <pre id="lang_response"></pre>
 <form id="family_form">
     <div class="input-group">
-        <label for="family">Language: </label>
+        <label for="family">Family: </label>
         <select id="family" name="family">
-            <option disabled>--Select a Language Family--</option>
+            <option disabled selected>--Select a Language Family--</option>
             <option value="Afro-Asiatic">Afro-Asiatic</option>
-            <option value="Asiatic">Asiatic</option>
+            <option value="Austroasiatic">Austroasiatic</option>
             <option value="Austronesian">Austronesian</option>
             <option value="Dravidian">Dravidian</option>
             <option value="Indo-European">Indo-European</option>
@@ -39,27 +39,61 @@
     </div>
     <button type="submit" value="family">Submit</button>
 </form>
+<h2>Family Entry: </h2>
+<pre id="family_response"></pre>
+<form id="script_form">
+    <div class="input-group">
+        <label for="script">Script: </label>
+        <select id="script" name="script">
+            <option disabled selected>--Select a Script--</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Baybayin">Baybayin</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Devanagari">Devanagari</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Cyrillic">Cyrillic</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Hangul">Hangul</option>
+            <option value="Kana">Kana</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Latin">Latin</option>
+            <option value="Saba">Saba</option>
+            <option value="Syriac">Syriac</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
 
+        </select>
+    </div>
+    <button type="submit" value="script">Submit</button>
+</form>
+<pre id="script_response"></pre>
 <script>
-    function form_handler(formId, field, endpoint, response) {
-    const form = document.getElementById(formId)
-    event.preventDefault();
-    const data = new FormData(form);
-    const value = data.get(field);
+   function attachFormHandler(formId, fieldName, endpoint, outputId) {
+    const form = document.getElementById(formId);
 
-    const response = await fetch(`http://localhost:5000/${endpoint}?{field}=${encodeURIComponent(value)}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const data = new FormData(form);
+        const value = data.get(fieldName);
+
+        try {
+            const response = await fetch(`http://localhost:5000/${endpoint}?${fieldName}=${encodeURIComponent(value)}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const myJson = await response.json();
+            document.getElementById(outputId).textContent = JSON.stringify(myJson, null, 2);
+        } catch (err) {
+            document.getElementById(outputId).textContent = "Error: " + err;
         }
     });
-
-    const myJson = await response.json();
-    console.log(myJson);
-    document.getElementById(response).textContent = JSON.stringify(myJson, undefined, 2);
 }
-    formHandler("lang_form", "lang", "search_lang", "lang_response")
-    formHandler("family_form", "family", "search_family", "family_response")
+
+    attachFormHandler("lang_form", "lang", "/search_lang", "lang_response")
+    attachFormHandler("family_form", "family", "/search_family", "family_response")
+    attachFormHandler("script_form", "script", "/search_script", "script_response")
 </script>
 </body>
 </html>
