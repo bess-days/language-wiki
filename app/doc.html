@@ -8,16 +8,25 @@
 <h1>Lang Wiki API</h1>
 
 <h2>Methods</h2>
-
-<h3>Search by language</h3>
+<h3>See all languages</h3>
 <div>
+    <p>Endpoint: http://localhost:5000/languages</p>
+    <p>Request type: Get</p>
+    <p>Request body: N/A</p>
+    <pre>
+  http://localhost:5000/languages
+</pre>
+    <p>Response: JSON with several language entries </p>
+    </div>
+<div>
+<h3>Search by language</h3>
     <p>Endpoint: http://localhost:5000/search_lang</p>
     <p>Request type: Get</p>
     <p>Request body: "lang" field name </p>
     <pre>
   http://localhost:5000/search_lang?lang=French
 </pre>
-    <p>Response: JSON with parse details, e.g. </p>
+    <p>Response: JSON with that language details, e.g. </p>
     <pre>
     [
   {
@@ -32,16 +41,18 @@
     "Speakers": 312
   }
 ]
-</pre>
+        </pre>
+</div>
+<div>
+
     <h3>Search by Language Family</h3>
-    <div>
         <p>Endpoint: http://localhost:5000/search_family</p>
         <p>Request type: Get</p>
         <p>Request body: "family" field name </p>
         <pre>
   http://localhost:5000/search_family?family=Dravidian
 </pre>
-        <p>Response: JSON with languages that match query. </p>
+        <p>Response: JSON with languages that match query and their information. </p>
         <pre>
    [
   {
@@ -81,5 +92,46 @@
 
 </pre>
     </div>
-</div>
+<div>
+
+    <h3>Search by Script</h3>
+        <p>Endpoint: http://localhost:5000/search_script</p>
+        <p>Request type: Get</p>
+        <p>Request body: "script" field name </p>
+        <pre>
+  http://localhost:5000/search_script?script=Chinese
+</pre>
+        <p>Response: JSON with languages that match query and their information. </p>
+        <pre>
+[
+  {
+    "Chinese": {
+      "Branch": "Sinitic",
+      "Countries": 27,
+      "Family": "Sino-Tibetan",
+      "ISO-Code": "zh",
+      "Name": "Chinese",
+      "Scripts": [
+        "Chinese"
+      ],
+      "Speakers": 1184
+    }
+  },
+  {
+    "Japanese": {
+      "Branch": null,
+      "Countries": 4,
+      "Family": "Japonic",
+      "ISO-Code": "ja",
+      "Name": "Japanese",
+      "Scripts": [
+        "Chinese",
+        "Kana"
+      ],
+      "Speakers": 126
+    }
+  }
+]
+</pre>
+    </div>
 </html>
