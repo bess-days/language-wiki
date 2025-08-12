@@ -26,7 +26,7 @@
     <pre>
   http://localhost:5000/search_lang?lang=French
 </pre>
-    <p>Response: JSON with that language details, e.g. </p>
+    <p>Response: JSON with that language details, e.g. If it returns an empty list, that means the language inputted either doesn't exist or doesn't have over 50 million speakers </p>
     <pre>
    [
   {
@@ -53,7 +53,7 @@
         <pre>
   http://localhost:5000/search_family?family=Dravidian
 </pre>
-        <p>Response: JSON with languages that match query and their information. </p>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
         <pre>
    [
   {
@@ -105,7 +105,7 @@
         <pre>
   http://localhost:5000/search_script?script=Chinese
 </pre>
-        <p>Response: JSON with languages that match query and their information. </p>
+        <p>Response: JSON with languages that match query and their information.  If it returns an empty list, then the script chosen is not used in a language with over 50 million speakers </p>
         <pre>
 [
   {
