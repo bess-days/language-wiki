@@ -71,6 +71,10 @@
 </form>
 <pre id="script_response"></pre>
 <script>
+    function titleCase(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
    function attachFormHandler(formId, fieldName, endpoint, outputId) {
     const form = document.getElementById(formId);
 
@@ -78,7 +82,7 @@
         event.preventDefault();
 
         const data = new FormData(form);
-        const value = data.get(fieldName);
+        const value = titleCase(data.get(fieldName));
 
         try {
             const response = await fetch(`http://localhost:5000/${endpoint}?${fieldName}=${encodeURIComponent(value)}`, {
