@@ -13,11 +13,11 @@ class MysqlRepository(Repository):
             import os
 
             config = {
-                "user": "root",
-                "password": "strongpassword",
-                "host": "db",  # service name in docker-compose.yml
-                "port": 3306,
-                "database": "languages"
+                'user': os.getenv("MYSQL_USER", "root"),
+                'password': os.getenv("MYSQL_PASSWORD", "strongpassword"),
+                'host': os.getenv("MYSQL_HOST", "db"),
+                'port': int(os.getenv("MYSQL_PORT", 3306)),
+                'database': os.getenv("MYSQL_DATABASE", "languages"),
             }
 
             # Retry loop for MySQL connection

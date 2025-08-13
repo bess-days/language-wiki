@@ -70,7 +70,25 @@ def create_app():
         results = services.search_by_scripts(query)
         return jsonify(results)
 
+    @app.route("/search_speakers", methods=["GET"])
+    @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+    def get_speakers():
+        min_val = request.args.get('min')
+        max_val = request.args.get('max')
+
+        # Convert to integers
+        try:
+            min_val = int(min_val)
+            max_val = int(max_val)
+        except (TypeError, ValueError):
+            return jsonify({"error": "Invalid min or max value"}), 400
+
+        # Now you can safely use them as numbers
+        results = services.search_by_speakers(min_val, max_val)
+        return jsonify(results)
+
     return app
+
 
 if __name__ == "__main__":
     t = create_app()

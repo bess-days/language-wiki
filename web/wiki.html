@@ -78,6 +78,21 @@
         <h3>Language scripts</h3>
 <pre id="script_response"></pre>
     </div>
+    <div class="form-section">
+        <h3>Speakers (millions)</h3>
+        <form id="speakers_form">
+            <div class="input-group">
+        <label for="min">Min: </label>
+        <input id="min" name="min" type="number"/>
+                <label for="max">Max: </label>
+        <input id="max" name="max" type="number"/>
+    </div>
+    <button type="submit" value="speakers" class="submit">Submit</button>
+        </form>
+                <h3>Language scripts</h3>
+<pre id="speakers_response"></pre>
+
+    </div>
 </div>
 <script>
     function titleCase(word) {
@@ -103,12 +118,33 @@
         } catch (err) {
             document.getElementById(outputId).textContent = "Error: " + err;
         }
+    })
+    }
+    function attachFormHandler2(formId, param1, param2, endpoint, outputId) {
+    const form = document.getElementById(formId);
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        min = parseFloat(document.getElementById("min").value);
+        max = parseFloat(document.getElementById("max").value);
+
+        try {
+            const response = await fetch(`http://localhost:5000${endpoint}?min=${min}&max=${max}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const myJson = await response.json();
+            document.getElementById(outputId).textContent = JSON.stringify(myJson, null, 2);
+        } catch (err) {
+            document.getElementById(outputId).textContent = "Error: " + err;
+        }
     });
-}
+    }
 
     attachFormHandler("lang_form", "lang", "/search_lang", "lang_response")
     attachFormHandler("family_form", "family", "/search_family", "family_response")
     attachFormHandler("script_form", "script", "/search_script", "script_response")
+    attachFormHandler2("speakers_form", "min", "max", "/search_speakers", "speakers_response")
 </script>
 </body>
 </html>
