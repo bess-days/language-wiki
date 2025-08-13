@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Lang Bot</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <h1>Lang Bot</h1>
-
+<div class="containers">
+    <div class="form-section">
 <h2>Enter a language name:</h2>
 
 <form id="lang_form">
@@ -18,8 +18,12 @@
     </div>
     <button type="submit" value="lang" class="submit">Submit</button>
 </form>
-<h2>Select a language family: </h2>
+<h3>Language Entry: </h3>
+
 <pre id="lang_response"></pre>
+        </div>
+    <div class="form-section">
+<h2>Select a family:</h2>
 <form id="family_form">
     <div class="input-group">
         <label for="family">Family: </label>
@@ -42,6 +46,8 @@
 </form>
 <h2>Family Entry: </h2>
 <pre id="family_response"></pre>
+    </div>
+    <div class="form-section">
 <h2>Script Entry: </h2>
 <form id="script_form">
     <div class="input-group">
@@ -69,7 +75,10 @@
     </div>
     <button type="submit" value="script">Submit</button>
 </form>
+        <h3>Language scripts</h3>
 <pre id="script_response"></pre>
+    </div>
+</div>
 <script>
     function titleCase(word) {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
@@ -85,7 +94,7 @@
         const value = titleCase(data.get(fieldName));
 
         try {
-            const response = await fetch(`http://localhost:5000/${endpoint}?${fieldName}=${encodeURIComponent(value)}`, {
+            const response = await fetch(`http://localhost:5000${endpoint}?${fieldName}=${encodeURIComponent(value)}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });

@@ -1,13 +1,16 @@
 services:
   app:
     build: .
-    links:
-      - db
     ports:
       - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+
 
   db:
-    image: mysql:latest
+    image: mysql:5.7
+    platform: linux/amd64
     ports:
       - "32000:3306"
     environment:
@@ -15,3 +18,8 @@ services:
       MYSQL_ROOT_PASSWORD: strongpassword
     volumes:
       - ./data:/docker-entrypoint-initdb.d/:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-pstrongpassword"]
+      interval: 10s
+      timeout: 10s
+      retries: 10

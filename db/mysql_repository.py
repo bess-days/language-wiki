@@ -1,25 +1,41 @@
 from db.repository import Repository
 import mysql.connector
+from mysql.connector import Error
+import time
+import os
 from model.common_enums import Family, Script, Branch
 from model.language import Language_Obj
-import os
 
 
 class MysqlRepository(Repository):
     def __init__(self):
-        super().__init__()
-        import os
+            super().__init__()
+            import os
 
-        config = {
-            'user': os.getenv('MYSQL_USER', 'root'),
-            'password': os.getenv('MYSQL_PASSWORD', 'strongpassword'),
-            'host': os.getenv('MYSQL_HOST', 'localhost'),
-            'port': int(os.getenv('MYSQL_PORT', 32000)),  # 32000 default for local Docker setup
-            'database': os.getenv('MYSQL_DB', 'languages'),
-        }
+            config = {
+                "user": "root",
+                "password": "strongpassword",
+                "host": "db",  # service name in docker-compose.yml
+                "port": 3306,
+                "database": "languages"
+            }
 
-        self.connection = mysql.connector.connect(**config)
-        self.cursor = self.connection.cursor()
+            # Retry loop for MySQL connection
+            max_retries = 10
+            connected = False
+            for attempt in range(max_retries):
+                try:
+                    self.connection = mysql.connector.connect(**config)
+                    self.cursor = self.connection.cursor()
+                    print("✅ Connected to MySQL")
+                    connected = True
+                    break
+                except Error as e:
+                    print(f"❌ MySQL not ready (attempt {attempt + 1}/{max_retries}): {e}")
+                    time.sleep(3)
+
+            if not connected:
+                raise RuntimeError("Could not connect to MySQL after multiple attempts.")
     def map_families(self, entry: dict) -> Family:
         family_switcher = {
             "Indo-European": Family.INDO_EUROPEAN,
