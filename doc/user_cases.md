@@ -43,7 +43,27 @@ Output:
 | Portuguese {info from test case 1} |
 | Spanish {info from test case 1}    |
 
-## 4. Search by Speakers
+## 4. Search by Script:
+Search by scripts and returns the info and languages with that script
+
+Input: Arabic
+
+Output:
+
+| Languages                        |
+|----------------------------------| 
+| Arabic {info from test case 1}   |
+| Hausa {info from test case 1}    |
+| Javanese {info from test case 1} |
+| Persian {info from test case 1}  |
+| Punjabi {info from test case 1}  |
+| Swahili {info from test case 1}  |
+| Urdu {info from test case 1}     |
+
+
+
+
+## 5. Search by Speakers
 A user inputs and min and max for speakers in millions and it outputs the languages with speakers between those two variables and the info
 
 Input: min: 50, max: 70
@@ -70,22 +90,3 @@ Output:
 | English {info from test case 1}  |
 | French {info from test case 1}   |
 | Spanish {info from test case 1}  |
-
-## 6. Search by Script:
-Search by scripts and returns the info and languages with that script
-
-Input: Arabic
-
-Output:
-
-| Languages                        |
-|----------------------------------| 
-| Arabic {info from test case 1}   |
-| Hausa {info from test case 1}    |
-| Javanese {info from test case 1} |
-| Persian {info from test case 1}  |
-| Punjabi {info from test case 1}  |
-| Swahili {info from test case 1}  |
-| Urdu {info from test case 1}     |
-
-

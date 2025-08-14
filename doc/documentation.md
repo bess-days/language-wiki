@@ -84,6 +84,48 @@ curl -G -d "family=Dravidian"  http://localhost:5000/search_family
 ```
 
 ---
+## Search By Language Branch
+#### Webpage
+In the next entry box is a drop down with different language branches, select an option to see the languages and their information.
+
+Input: `Germanic`
+
+Output:
+```json
+[
+  {
+    "English": {
+      "Branch": "Germanic",
+      "Countries": 74,
+      "Family": "Indo-European",
+      "ISO-Code": "en",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 1528
+    }
+  },
+  {
+    "German": {
+      "Branch": "Germanic",
+      "Countries": 20,
+      "Family": "Indo-European",
+      "ISO-Code": "de",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 134
+    }
+  }
+]
+```
+#### Curl
+You can interact with the API with the parameter and the branch you want to search
+```commandline
+curl -G -d "branch=Germanic"  http://localhost:5000/search_branch
+```
+
+---
 ## Search By Script
 #### Webpage
 In the next entry box is a drop down with different language families, select an option to see the languages with the selected script and their information.

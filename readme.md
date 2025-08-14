@@ -13,7 +13,6 @@ This is an interactive webpage that can allow you to find languages that match q
 - [Directory](#directory-set-up)
 - [Usage](#usage)
 - [Sources](#sources)
-- [License](#license)
 
 # Installation
 ## Prerequisites
@@ -52,7 +51,13 @@ The repository is organized into several directories, each serving a specific pu
 
 ```web/``` Includes the website html and css.
 ## Usage
-### Search By Language Name
+## Queries
+- [Search By Language](#Language)
+- [Search by Language Family](#family)
+- [Search by Language Branch](#branch)
+- [Search by Speakers (Millions)](#speakers)
+- [Search by Number of Countries Spoken](#countries)
+### Language
 ##### Web Page
 In the first entry text box, type in a language name (can be capitolized however you want as the program fixes it for you) Click submit or enter.
 This should return a list of the languages that match that query (as in theory some languages have the same name.) If it returns [] that means the language does not have over 50 million speakers
@@ -83,7 +88,7 @@ curl -G -d "lang=French"  http://localhost:5000/search_lang
 ```
 
 ---
-### Search By Language Family
+### Family
 ##### Webpage
 In the next entry box is a drop down with different language families, select an option to see the languages and their information.
 
@@ -135,9 +140,50 @@ You can interact with the API with the parameter and the family you want to sear
 ```commandline
 curl -G -d "family=Dravidian"  http://localhost:5000/search_family
 ```
+---
+### Branch
+##### Webpage
+In the next entry box is a drop down with different language branches, select an option to see the languages and their information.
+
+Input: `Germanic`
+
+Output:
+```json
+[
+  {
+    "English": {
+      "Branch": "Germanic",
+      "Countries": 74,
+      "Family": "Indo-European",
+      "ISO-Code": "en",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 1528
+    }
+  },
+  {
+    "German": {
+      "Branch": "Germanic",
+      "Countries": 20,
+      "Family": "Indo-European",
+      "ISO-Code": "de",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 134
+    }
+  }
+]
+```
+##### Curl
+You can interact with the API with the parameter and the branch you want to search
+```commandline
+curl -G -d "branch=Germanic"  http://localhost:5000/search_branch
+```
 
 ---
-### Search By Script
+### Script
 ##### Webpage
 In the next entry box is a drop down with different language families, select an option to see the languages with the selected script and their information.
 
@@ -190,7 +236,7 @@ You can interact with the API with the parameter and the script you want to sear
 curl -G -d "script=Devanagari"  http://localhost:5000/search_script
 ```
 ---
-### Search By Speakers
+### Speakers
 ##### Webpage
 In the next entry box there is a box for a min and max that will serve as the range of speakers to query along with their information.
 
@@ -248,7 +294,7 @@ curl -G -d "min=50" -d "max=60"   http://localhost:5000/search_speakers
 ```
 
 ---
-### Search By Number of Countries Spoken
+### Countries
 ##### Webpage
 In the next entry box there is a box for a min and max that will serve as the range of countries in which a language is spoken.
 
@@ -305,3 +351,5 @@ You can interact with the API with the parameter and the mix and max you want to
 ```commandline
 curl -G -d "min1=10" -d "max1=13"   http://localhost:5000/search_countries
 ```
+# Sources
+I want to thank Professor Eric Jackson and Jeff Berry for the course material. Thank you for the sources I used in the webscraping and using AI to troubleshoot issues I ran into. 
