@@ -98,6 +98,46 @@
     </div>
 <div>
 
+    <h3>Search by Language Branch</h3>
+        <p>Endpoint: http://localhost:5000/search_branch</p>
+        <p>Request type: Get</p>
+        <p>Request body: "branch" field name </p>
+        <pre>
+  http://localhost:5000/search_branch?branch=Germanic
+</pre>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <pre>
+  [
+  {
+    "English": {
+      "Branch": "Germanic",
+      "Countries": 74,
+      "Family": "Indo-European",
+      "ISO-Code": "en",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 1528
+    }
+  },
+  {
+    "German": {
+      "Branch": "Germanic",
+      "Countries": 20,
+      "Family": "Indo-European",
+      "ISO-Code": "de",
+      "Scripts": [
+        "Latin"
+      ],
+      "Speakers": 134
+    }
+  }
+]
+
+</pre>
+    </div>
+<div>
+
     <h3>Search by Script</h3>
         <p>Endpoint: http://localhost:5000/search_script</p>
         <p>Request type: Get</p>
@@ -136,6 +176,110 @@
     }
   }
 ]
+</pre>
+    </div>
+<div>
+
+    <h3>Search by Number of Speakers (millions)</h3>
+        <p>Endpoint: http://localhost:5000/search_speakers</p>
+        <p>Request type: Get</p>
+        <p>Request body: "min" field and "max" field </p>
+        <pre>
+  http://localhost:5000/search_speakers?min=50&max=60
+</pre>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <pre>[
+  {
+    "Amharic": {
+      "Branch": "Semitic",
+      "Countries": 7,
+      "Family": "Afro-Asiatic",
+      "ISO-Code": "am",
+      "Scripts": [
+        "Saba"
+      ],
+      "Speakers": 60
+    }
+  },
+  {
+    "Bhojpuri": {
+      "Branch": "Indo-Aryan",
+      "Countries": 3,
+      "Family": "Indo-European",
+      "ISO-Code": "bho",
+      "Scripts": [
+        "Devanagari"
+      ],
+      "Speakers": 53
+    }
+  },
+  {
+    "Kannada": {
+      "Branch": "South",
+      "Countries": 1,
+      "Family": "Dravidian",
+      "ISO-Code": "kn",
+      "Scripts": [
+        "Kannada"
+      ],
+      "Speakers": 59
+    }
+  }
+]
+
+</pre>
+    </div>
+<div>
+<h3>Search by Number of Countries the Language is Spoken</h3>
+        <p>Endpoint: http://localhost:5000/search_countries</p>
+        <p>Request type: Get</p>
+        <p>Request body: "min1" field and "max1" field </p>
+        <pre>
+  http://localhost:5000/search_countries?min1=10&max1=13
+</pre>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <pre>[
+  [
+  {
+    "Swahili": {
+      "Branch": "Bantu",
+      "Countries": 13,
+      "Family": "Niger-Congo",
+      "ISO-Code": "sw",
+      "Scripts": [
+        "Arabic",
+        "Latin"
+      ],
+      "Speakers": 87
+    }
+  },
+  {
+    "Tagalog": {
+      "Branch": "Malayo-Polynesian",
+      "Countries": 11,
+      "Family": "Austronesian",
+      "ISO-Code": "tl",
+      "Scripts": [
+        "Baybayin",
+        "Latin"
+      ],
+      "Speakers": 87
+    }
+  },
+  {
+    "Thai": {
+      "Branch": "Zhuang-Tai",
+      "Countries": 13,
+      "Family": "Kra-Dai",
+      "ISO-Code": "th",
+      "Scripts": [
+        "Thai"
+      ],
+      "Speakers": 71
+    }
+  }
+]
+
 </pre>
     </div>
 </html>
