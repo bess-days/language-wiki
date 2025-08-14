@@ -54,6 +54,39 @@
 <h4>Languages that match your query: </h4>
 <pre id="family_response"></pre>
     </div>
+
+        <div class="form-section">
+<h2>Select a language family:</h2>
+<form id="branch_form">
+    <div class="input-group">
+        <label for="branch">Branch: </label>
+        <select id="branch" name="branch">
+            <option disabled selected>--Select--</option>
+            <option value="Balto-Slavic">Balto-Slavic</option>
+            <option value="Bantu">Bantu</option>
+            <option value="Chadic">Chadic</option>
+            <option value="Germanic">Germanic</option>
+            <option value="Indo-Aryan">Indo-Aryan</option>
+            <option value="Iranian">Iranian</option>
+            <option value="Malayo-Polynesian">Malayo-Polynesian</option>
+            <option value="Romance">Romance</option>
+            <option value="Semitic">Semitic</option>
+            <option value="Sinitic">Sinitic</option>
+            <option value="South">South (Indian branch)</option>
+            <option value="Sinitic">Sinitic</option>
+            <option value="South">South (Indian branch)</option>
+            <option value="South-Central">South-Central (Indian branch)</option>
+            <option value="Vietic">Vietic</option>
+            <option value="Zhuang-Tai">Zhuang-Tai</option>
+
+
+        </select>
+    </div>
+    <button type="submit" value="family">Submit</button>
+</form>
+<h4>Languages that match your query: </h4>
+<pre id="branch_response"></pre>
+    </div>
     <div class="form-section">
 <h2>Select a script:</h2>
 <form id="script_form">
@@ -68,7 +101,9 @@
             <option value="Cyrillic">Cyrillic</option>
             <option value="Devanagari">Devanagari</option>
             <option value="Gujarati">Gujarati</option>
+            <option value="Gurmukhi">Gurmukhi</option>
             <option value="Hangul">Hangul</option>
+            <option value="Javanese">Javanese</option>
             <option value="Kana">Kana</option>
             <option value="Kannada">Kannada</option>
             <option value="Latin">Latin</option>
@@ -167,6 +202,7 @@
 
     attachFormHandler("lang_form", "lang", "/search_lang", "lang_response")
     attachFormHandler("family_form", "family", "/search_family", "family_response")
+    attachFormHandler("branch_form", "branch", "/search_branch", "branch_response")
     attachFormHandler("script_form", "script", "/search_script", "script_response")
     attachFormHandler2("speakers_form", "min", "max", "/search_speakers", "speakers_response")
     attachFormHandler2("countries_form", "min1", "max1", "/search_countries", "countries_response")

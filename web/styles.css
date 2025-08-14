@@ -1,17 +1,14 @@
 body {
 background-image: url('map_back.jpg');
  }
-
 .containers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
-  justify-content: center;
-  padding-top: 20px;
-  align-items: baseline;
-
+  display: flex;
+  gap: 30px;
+  align-items: flex-start; /* keeps tops aligned */
 }
-
+.form-section {
+  flex: 1;
+}
 
 .form-section {
   border-radius: 15px;

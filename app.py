@@ -63,6 +63,13 @@ def create_app():
         results = [lang.get_json() for lang in services.search_by_family(query)]
         return jsonify(results)
 
+    @app.route("/search_branch", methods=["GET"])
+    @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+    def get_branch():
+        query = request.args.get("branch")
+        results = [lang.get_json() for lang in services.search_by_branch(query)]
+        return jsonify(results)
+
     @app.route("/search_script", methods=["GET"])
     @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
     def get_script():
