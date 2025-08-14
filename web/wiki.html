@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Lang Bot</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<div class="title-container">
+    <div class="title-pill">
 <h1>Lang Bot</h1>
+    </div>
+    </div>
+<p>This is an interactive webpage that can allow you to find languages that match queries related to things like name, language family, script, number of speakers and number of countries spoken for languages with over 50 million speakers. I've always loved learning about languages, even if I don't speak them. (If the results are an empty list, this means the query you inputted either doesn't exist or is not relevant to languages with over 50 million speakers)</p>
 <div class="containers">
     <div class="form-section">
 <h2>Enter a language name:</h2>
 
 <form id="lang_form">
     <div class="input-group">
-        <label for="lang">Language: </label>
-        <input id="lang" name="lang" type="text"/>
+        <label for="lang">Language:</label>
+        <input id="lang" name="lang" type="text" placeholder="Type Language"/>
     </div>
     <button type="submit" value="lang" class="submit">Submit</button>
 </form>
-<h3>Language Entry: </h3>
+<h3>Languages that match your query: </h3>
 
 <pre id="lang_response"></pre>
         </div>
@@ -48,7 +53,7 @@
 <pre id="family_response"></pre>
     </div>
     <div class="form-section">
-<h2>Script Entry: </h2>
+<h2>Select a script:</h2>
 <form id="script_form">
     <div class="input-group">
         <label for="script">Script: </label>
@@ -75,22 +80,37 @@
     </div>
     <button type="submit" value="script">Submit</button>
 </form>
-        <h3>Language scripts</h3>
+        <h3>Languages that match your query:</h3>
 <pre id="script_response"></pre>
     </div>
     <div class="form-section">
         <h3>Speakers (millions)</h3>
         <form id="speakers_form">
             <div class="input-group">
-        <label for="min">Min: </label>
-        <input id="min" name="min" type="number"/>
-                <label for="max">Max: </label>
-        <input id="max" name="max" type="number"/>
+        <label for="min"></label>
+        <input id="min" name="min" type="number" placeholder="Min"/>
+                <label for="max"></label>
+        <input id="max" name="max" type="number" placeholder="Max"/>
     </div>
     <button type="submit" value="speakers" class="submit">Submit</button>
         </form>
                 <h3>Language scripts</h3>
 <pre id="speakers_response"></pre>
+
+    </div>
+    <div class="form-section">
+        <h3>Number of Countries where this language is spoken</h3>
+        <form id="countries_form">
+            <div class="input-group">
+        <label for="min1"></label>
+        <input id="min1" name="min1" type="number" placeholder="Min"/>
+                <label for="max1"></label>
+        <input id="max1" name="max1" type="number" placeholder="Max"/>
+    </div>
+    <button type="submit" value="countries" class="submit">Submit</button>
+        </form>
+                <h3>Languages that match the query:</h3>
+<pre id="countries_response"></pre>
 
     </div>
 </div>
@@ -125,11 +145,13 @@
 
     form.addEventListener("submit", async function(event) {
         event.preventDefault();
-        min = parseFloat(document.getElementById("min").value);
-        max = parseFloat(document.getElementById("max").value);
+        min = parseFloat(document.getElementById(param1).value);
+        max = parseFloat(document.getElementById(param2).value);
+        console.log(min);
+        console.log(max)
 
         try {
-            const response = await fetch(`http://localhost:5000${endpoint}?min=${min}&max=${max}`, {
+            const response = await fetch(`http://localhost:5000${endpoint}?${param1}=${min}&${param2}=${max}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -145,6 +167,7 @@
     attachFormHandler("family_form", "family", "/search_family", "family_response")
     attachFormHandler("script_form", "script", "/search_script", "script_response")
     attachFormHandler2("speakers_form", "min", "max", "/search_speakers", "speakers_response")
+    attachFormHandler2("countries_form", "min1", "max1", "/search_countries", "countries_response")
 </script>
 </body>
 </html>
