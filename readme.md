@@ -7,6 +7,7 @@ This is an interactive webpage that can allow you to find languages that match q
 - SQL DB management
 - Docker container
 - Flask API
+- HTML and CSS
 ## Table of Contents
 - [Installation](#installation)
 - [Directory](#directory-set-up)
@@ -26,7 +27,7 @@ This is an interactive webpage that can allow you to find languages that match q
    4. Open in a IDE
 
 2. Run docker
-`docker compose up`
+`docker-compose up --build`
 Make sure it is running
 3. Open `web/wiki.html`
 
@@ -84,8 +85,7 @@ curl -G -d "lang=French"  http://localhost:5000/search_lang
 ---
 ### Search By Language Family
 ##### Webpage
-
-In the next entry box is a drop down with different language families, select an option to see the languages and their information
+In the next entry box is a drop down with different language families, select an option to see the languages and their information.
 
 Input: `Dravidian`
 
@@ -131,16 +131,15 @@ Output:
 ]
 ```
 ##### Curl
-You can interact with the API with the parameter and the lang you want to search
+You can interact with the API with the parameter and the family you want to search
 ```commandline
 curl -G -d "family=Dravidian"  http://localhost:5000/search_family
 ```
 
 ---
 ### Search By Script
-
 ##### Webpage
-In the next entry box is a drop down with different language families, select an option to see the languages with the selected script and their information
+In the next entry box is a drop down with different language families, select an option to see the languages with the selected script and their information.
 
 Input: `Devanagari`
 
@@ -186,10 +185,123 @@ Output:
 ]
 ```
 ##### Curl
-You can interact with the API with the parameter and the lang you want to search
+You can interact with the API with the parameter and the script you want to search
 ```commandline
 curl -G -d "script=Devanagari"  http://localhost:5000/search_script
 ```
-## Sources
+---
+### Search By Speakers
+##### Webpage
+In the next entry box there is a box for a min and max that will serve as the range of speakers to query along with their information.
+
+Input for min: `50`
+
+Input for max: `60`
 
 
+Output:
+```json
+[
+  {
+    "Amharic": {
+      "Branch": "Semitic",
+      "Countries": 7,
+      "Family": "Afro-Asiatic",
+      "ISO-Code": "am",
+      "Scripts": [
+        "Saba"
+      ],
+      "Speakers": 60
+    }
+  },
+  {
+    "Bhojpuri": {
+      "Branch": "Indo-Aryan",
+      "Countries": 3,
+      "Family": "Indo-European",
+      "ISO-Code": "bho",
+      "Scripts": [
+        "Devanagari"
+      ],
+      "Speakers": 53
+    }
+  },
+  {
+    "Kannada": {
+      "Branch": "South",
+      "Countries": 1,
+      "Family": "Dravidian",
+      "ISO-Code": "kn",
+      "Scripts": [
+        "Kannada"
+      ],
+      "Speakers": 59
+    }
+  }
+]
+
+```
+##### Curl
+You can interact with the API with the parameter and the range of speakers you want to query
+```commandline
+curl -G -d "min=50" -d "max=60"   http://localhost:5000/search_speakers
+```
+
+---
+### Search By Number of Countries Spoken
+##### Webpage
+In the next entry box there is a box for a min and max that will serve as the range of countries in which a language is spoken.
+
+Input for min: `10`
+
+Input for max: `13`
+
+
+Output:
+```json
+[
+  {
+    "Swahili": {
+      "Branch": "Bantu",
+      "Countries": 13,
+      "Family": "Niger-Congo",
+      "ISO-Code": "sw",
+      "Scripts": [
+        "Arabic",
+        "Latin"
+      ],
+      "Speakers": 87
+    }
+  },
+  {
+    "Tagalog": {
+      "Branch": "Malayo-Polynesian",
+      "Countries": 11,
+      "Family": "Austronesian",
+      "ISO-Code": "tl",
+      "Scripts": [
+        "Baybayin",
+        "Latin"
+      ],
+      "Speakers": 87
+    }
+  },
+  {
+    "Thai": {
+      "Branch": "Zhuang-Tai",
+      "Countries": 13,
+      "Family": "Kra-Dai",
+      "ISO-Code": "th",
+      "Scripts": [
+        "Thai"
+      ],
+      "Speakers": 71
+    }
+  }
+]
+```
+##### Curl
+You can interact with the API with the parameter and the mix and max you want to search
+```commandline
+curl -G -d "min1=10" -d "max1=13"   http://localhost:5000/search_countries
+```

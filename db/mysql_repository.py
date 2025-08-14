@@ -15,8 +15,8 @@ class MysqlRepository(Repository):
             config = {
                 'user': os.getenv("MYSQL_USER", "root"),
                 'password': os.getenv("MYSQL_PASSWORD", "strongpassword"),
-                'host': os.getenv("MYSQL_HOST", "localhost"),
-                'port': int(os.getenv("MYSQL_PORT", 32000)),
+                'host': os.getenv("MYSQL_HOST", "db"),
+                'port': int(os.getenv("MYSQL_PORT", 3306)),
                 'database': os.getenv("MYSQL_DATABASE", "languages"),
             }
             self.connection = mysql.connector.connect(**config)
