@@ -5,7 +5,7 @@ background-image: url('map_back.jpg');
 .containers {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 15px;
   justify-content: center;
   padding-top: 20px;
   align-items: baseline;
@@ -21,12 +21,21 @@ background-image: url('map_back.jpg');
   background-color: #D6B588;
   border: 2px solid #6e5028
 }
+.form-section h2 {
+font-size: 1.5rem;
+}
 
-
-pre {
-background-color: #F2F0EF;
+.form-section pre {
+  margin-left: -30px;  /* cancels .form-section padding */
+  margin-right: -30px;
+  width: calc(100% + 60px); /* expand width to fill the space */
+  border-radius: 0 0 15px 15px; /* optional: keep bottom rounded */
+  padding: 10px; /* padding for text inside pre */
+  box-sizing: border-box;
 border-radius: 10px;
 }
+
+
 .title-container {
 
 text-align: center;
@@ -44,7 +53,7 @@ border-radius: 50px;
 text-decoration: underline;
 
 }
-input, select {
+input{
 background-color:#F2F0EF;
 width: 50%;
     padding: 10px 10px;
@@ -52,6 +61,28 @@ width: 50%;
     border: 2px solid #ccc;
     border-radius: 10px
     }
+    select {
+    background-color:#F2F0EF;
+    padding: 10px 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px
+    }
     button {
-    background-color: brown
+    background-color: #6e5028;
+    display: inline-block;
+justify-content: center;
+align-items: center;
+padding: 5px 10px;
+border-radius: 50px;
+color: #F2F0EF;
+
+
+    }
+    .intro p {
+    background-color:#D6B588;
+    margin: 40px;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+    color: #6e5028;
     }

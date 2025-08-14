@@ -8,10 +8,12 @@
 <body>
 <div class="title-container">
     <div class="title-pill">
-<h1>Lang Bot</h1>
+<h1>LangBot</h1>
     </div>
     </div>
-<p>This is an interactive webpage that can allow you to find languages that match queries related to things like name, language family, script, number of speakers and number of countries spoken for languages with over 50 million speakers. I've always loved learning about languages, even if I don't speak them. (If the results are an empty list, this means the query you inputted either doesn't exist or is not relevant to languages with over 50 million speakers)</p>
+<div class="intro">
+<p>This is an interactive webpage that can allow you to find languages that match queries related to things like name, language family, script, number of speakers and number of countries spoken for languages with over 50 million speakers. <br> (If the results are an empty list, this means the query you inputted either doesn't exist or is not relevant to languages with over 50 million speakers)</p>
+    </div>
 <div class="containers">
     <div class="form-section">
 <h2>Enter a language name:</h2>
@@ -23,17 +25,17 @@
     </div>
     <button type="submit" value="lang" class="submit">Submit</button>
 </form>
-<h3>Languages that match your query: </h3>
+<h4>Languages that match your query: </h4>
 
 <pre id="lang_response"></pre>
         </div>
     <div class="form-section">
-<h2>Select a family:</h2>
+<h2>Select a language family:</h2>
 <form id="family_form">
     <div class="input-group">
         <label for="family">Family: </label>
         <select id="family" name="family">
-            <option disabled selected>--Select a Language Family--</option>
+            <option disabled selected>--Select--</option>
             <option value="Afro-Asiatic">Afro-Asiatic</option>
             <option value="Austroasiatic">Austroasiatic</option>
             <option value="Austronesian">Austronesian</option>
@@ -49,7 +51,7 @@
     </div>
     <button type="submit" value="family">Submit</button>
 </form>
-<h2>Family Entry: </h2>
+<h4>Languages that match your query: </h4>
 <pre id="family_response"></pre>
     </div>
     <div class="form-section">
@@ -58,7 +60,7 @@
     <div class="input-group">
         <label for="script">Script: </label>
         <select id="script" name="script">
-            <option disabled selected>--Select a Script--</option>
+            <option disabled selected>--Select--</option>
             <option value="Arabic">Arabic</option>
             <option value="Baybayin">Baybayin</option>
             <option value="Bengali">Bengali</option>
@@ -80,11 +82,12 @@
     </div>
     <button type="submit" value="script">Submit</button>
 </form>
-        <h3>Languages that match your query:</h3>
+        <h4>Languages that match your query:</h4>
 <pre id="script_response"></pre>
     </div>
     <div class="form-section">
-        <h3>Speakers (millions)</h3>
+        <h2>Enter range for speakers in millions</h2>
+        <p><small>Note: numbers range from 50 to 1,528</small></p>
         <form id="speakers_form">
             <div class="input-group">
         <label for="min"></label>
@@ -94,12 +97,13 @@
     </div>
     <button type="submit" value="speakers" class="submit">Submit</button>
         </form>
-                <h3>Language scripts</h3>
+                <h4>Languages that match your query:</h4>
 <pre id="speakers_response"></pre>
 
     </div>
     <div class="form-section">
-        <h3>Number of Countries where this language is spoken</h3>
+        <h3>Enter range of countries where this language is spoken</h3>
+         <p><small>Note: numbers range from 1 to 75</small></p>
         <form id="countries_form">
             <div class="input-group">
         <label for="min1"></label>
@@ -109,7 +113,7 @@
     </div>
     <button type="submit" value="countries" class="submit">Submit</button>
         </form>
-                <h3>Languages that match the query:</h3>
+                <h4>Languages that match the query:</h4>
 <pre id="countries_response"></pre>
 
     </div>
@@ -147,8 +151,6 @@
         event.preventDefault();
         min = parseFloat(document.getElementById(param1).value);
         max = parseFloat(document.getElementById(param2).value);
-        console.log(min);
-        console.log(max)
 
         try {
             const response = await fetch(`http://localhost:5000${endpoint}?${param1}=${min}&${param2}=${max}`, {
