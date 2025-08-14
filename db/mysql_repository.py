@@ -15,27 +15,13 @@ class MysqlRepository(Repository):
             config = {
                 'user': os.getenv("MYSQL_USER", "root"),
                 'password': os.getenv("MYSQL_PASSWORD", "strongpassword"),
-                'host': os.getenv("MYSQL_HOST", "db"),
-                'port': int(os.getenv("MYSQL_PORT", 3306)),
+                'host': os.getenv("MYSQL_HOST", "localhost"),
+                'port': int(os.getenv("MYSQL_PORT", 32000)),
                 'database': os.getenv("MYSQL_DATABASE", "languages"),
             }
+            self.connection = mysql.connector.connect(**config)
+            self.cursor = self.connection.cursor()
 
-            # Retry loop for MySQL connection
-            max_retries = 10
-            connected = False
-            for attempt in range(max_retries):
-                try:
-                    self.connection = mysql.connector.connect(**config)
-                    self.cursor = self.connection.cursor()
-                    print("✅ Connected to MySQL")
-                    connected = True
-                    break
-                except Error as e:
-                    print(f"❌ MySQL not ready (attempt {attempt + 1}/{max_retries}): {e}")
-                    time.sleep(3)
-
-            if not connected:
-                raise RuntimeError("Could not connect to MySQL after multiple attempts.")
     def map_families(self, entry: dict) -> Family:
         family_switcher = {
             "Indo-European": Family.INDO_EUROPEAN,

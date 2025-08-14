@@ -53,38 +53,37 @@ def create_app():
     @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
     def get_lang():
         query = request.args.get("lang")
-        results = services.search_by_lang(query)
+        results = [lang.get_json() for lang in services.search_by_lang(query)]
         return jsonify(results)
 
     @app.route("/search_family", methods=["GET"])
     @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
     def get_family():
         query = request.args.get("family")
-        results = services.search_by_family(query)
+        results = [lang.get_json() for lang in services.search_by_family(query)]
         return jsonify(results)
 
     @app.route("/search_script", methods=["GET"])
     @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
     def get_script():
         query = request.args.get("script")
-        results = services.search_by_scripts(query)
+        results = [lang.get_json() for lang in  services.search_by_scripts(query)]
         return jsonify(results)
 
     @app.route("/search_speakers", methods=["GET"])
     @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
     def get_speakers():
-        min_val = request.args.get('min')
-        max_val = request.args.get('max')
+        min_val = int(request.args.get('min'))
+        max_val = int(request.args.get('max'))
+        results = [lang.get_json() for lang in services.search_by_speakers(min_val, max_val)]
+        return jsonify(results)
 
-        # Convert to integers
-        try:
-            min_val = int(min_val)
-            max_val = int(max_val)
-        except (TypeError, ValueError):
-            return jsonify({"error": "Invalid min or max value"}), 400
-
-        # Now you can safely use them as numbers
-        results = services.search_by_speakers(min_val, max_val)
+    @app.route("/search_countries", methods=["GET"])
+    @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+    def get_counties():
+        min_val = int(request.args.get('min1'))
+        max_val = int(request.args.get('max1'))
+        results = [lang.get_json() for lang in services.search_by_countries(min_val, max_val)]
         return jsonify(results)
 
     return app
