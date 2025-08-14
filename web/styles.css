@@ -12,7 +12,7 @@ background-image: url('map_back.jpg');
 
 .form-section {
   border-radius: 15px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   background-color: #D6B588;
@@ -70,6 +70,7 @@ width: 50%;
 justify-content: center;
 align-items: center;
 padding: 5px 10px;
+margin-top: 10px;
 border-radius: 50px;
 color: #F2F0EF;
 

@@ -1,16 +1,10 @@
-import os
 from logging.config import dictConfig
-import app
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-
 from app.services import Services
 
 def create_app():
-    from logging.config import dictConfig
-    from flask import Flask, request, jsonify
-    from flask_cors import CORS, cross_origin
-    from app.services import Services
+
 
     dictConfig({
         'version': 1,
