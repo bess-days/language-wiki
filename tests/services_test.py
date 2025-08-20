@@ -35,7 +35,7 @@ def test_speakers():
     assert len(s_test) == 3
     assert [lang.languageName for lang in s_test] == ["Amharic", "Bhojpuri", "Kannada"]
 def test_countries():
-    c_test = REPO.search_by_countries(1, 13)
+    c_test = REPO.search_by_countries(10, 13)
     assert type(c_test) == list
     for lang in c_test:
         assert type(lang) == Language_Obj

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Editing everything for the tests and use cases and documentations count" />
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Error with the test cases x2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,22 +234,6 @@
       <workItem from="1754252815409" duration="5072000" />
       <workItem from="1754262218384" duration="6164000" />
       <workItem from="1754343086469" duration="16648000" />
-    </task>
-    <task id="LOCAL-00003" summary="- Exported to csv so don't have to run each time to grab info">
-      <option name="closed" value="true" />
-      <created>1753904711301</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1753904711301</updated>
-    </task>
-    <task id="LOCAL-00004" summary="- Added documentation for new scripts scraping">
-      <option name="closed" value="true" />
-      <created>1753905233491</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1753905233491</updated>
     </task>
     <task id="LOCAL-00005" summary="- Added more enums, added test for the sql repository">
       <option name="closed" value="true" />
@@ -627,7 +611,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755649351277</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Error with the test cases">
+      <option name="closed" value="true" />
+      <created>1755649518908</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1755649518908</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Error with the test cases x2">
+      <option name="closed" value="true" />
+      <created>1755649808132</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1755649808132</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,8 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding app.py and docker file updates" />
-    <MESSAGE value="App.py to use get instead of post since not adding or updating the database" />
     <MESSAGE value="Added scripts part (still working on it) and updated Dockerfile" />
     <MESSAGE value="Accidently deleted host" />
     <MESSAGE value="family function error (need to change names so they appear better)" />
@@ -670,7 +668,9 @@
     <MESSAGE value="edited API doc" />
     <MESSAGE value="More edits with the webpage" />
     <MESSAGE value="Editing everything for the tests and use cases and documentations count" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing everything for the tests and use cases and documentations count" />
+    <MESSAGE value="Error with the test cases" />
+    <MESSAGE value="Error with the test cases x2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error with the test cases x2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
