@@ -16,49 +16,43 @@ Output:
 | Countries       | 51 countries  |
 
 
-## 2.  Language Family
+## 2.  Search by Language Family
 A user can select a language family and it returns the languages and their info
 
-Input: "Afro-Asiatic"
+Input: "Dravidian"
 
 Output:
 
 | Languages                       |
 |---------------------------------| 
-| Amharic {info from test case 1} |
-| Arabic {info from test case 1}  |
-| Hausa {info from test case 1} |
+| Kannada {info from test case 1} |
+| Tamil {info from test case 1}   |
+| Telugu {info from test case 1}   |
 
-## 3. Family Branch
+## 3. Search by Family Branch
 A user can select  a language branch and returns the languages and their info
 
-Input: Romance
+Input: Germanic
 
 Output:
 
 | Languages                          |
 |------------------------------------| 
-| French {info from test case 1}     |
-| Italian {info from test case 1}    |
-| Portuguese {info from test case 1} |
-| Spanish {info from test case 1}    |
+| English {info from test case 1}    |
+| German {info from test case 1}     |
 
 ## 4. Search by Script:
 Search by scripts and returns the info and languages with that script
 
-Input: Arabic
+Input: Devanagari
 
 Output:
 
 | Languages                        |
 |----------------------------------| 
-| Arabic {info from test case 1}   |
-| Hausa {info from test case 1}    |
-| Javanese {info from test case 1} |
-| Persian {info from test case 1}  |
-| Punjabi {info from test case 1}  |
-| Swahili {info from test case 1}  |
-| Urdu {info from test case 1}     |
+| Bhojpuri {info from test case 1} |
+| Hindi {info from test case 1}    |
+| Marathi {info from test case 1}  |
 
 
 
@@ -66,27 +60,23 @@ Output:
 ## 5. Search by Speakers
 A user inputs and min and max for speakers in millions and it outputs the languages with speakers between those two variables and the info
 
-Input: min: 50, max: 70
+Input: min: 50, max: 60
 
 | Languages                        |
 |----------------------------------| 
 | Amharic {info from test case 1}  |
 | Bhojpuri {info from test case 1} |
-| Gujarati {info from test case 1} |
-| Italian {info from test case 1}  |
-| Javanese {info from test case 1} |
 | Kannada {info from test case 1}  |
 
 ## 5. Search by Countries
 A user inputs and min and max for number of countries where the language is spoken  and it outputs the languages with speakers between those two variables and the info
 
-Input: min 30, max 80
+Input: min 1, max 13
 
 Output:
 
-| Languages                        |
-|----------------------------------| 
-| Arabic {info from test case 1}   |
-| English {info from test case 1}  |
-| French {info from test case 1}   |
-| Spanish {info from test case 1}  |
+| Languages                       |
+|---------------------------------| 
+| Swahili {info from test case 1} |
+| Tagalog {info from test case 1} |
+| Thai {info from test case 1}    |

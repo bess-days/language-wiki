@@ -1,5 +1,3 @@
-from numpy.f2py.symbolic import Language
-
 from db.mysql_repository import *
 repo = MysqlRepository()
 arabic = {

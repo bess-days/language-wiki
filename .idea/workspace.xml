@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="edited API doc">
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="More edits with the webpage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wiki.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/wiki.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/user_cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/user_cases.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="language-wiki" />
       <option name="ENV_FILES" value="" />
@@ -238,14 +237,6 @@
       <workItem from="1754252815409" duration="5072000" />
       <workItem from="1754262218384" duration="6164000" />
       <workItem from="1754343086469" duration="16648000" />
-    </task>
-    <task id="LOCAL-00001" summary="Created documentation">
-      <option name="closed" value="true" />
-      <created>1752980735396</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1752980735396</updated>
     </task>
     <task id="LOCAL-00002" summary="-Added Docker&#10;- Followed ethics when scraping&#10;- Started building the SQL db">
       <option name="closed" value="true" />
@@ -631,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755205673592</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="More edits with the webpage">
+      <option name="closed" value="true" />
+      <created>1755206238675</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1755206238675</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Editing the readme" />
     <MESSAGE value="added test for type in the sql testing load_languages()" />
     <MESSAGE value="Adding app.py and docker file updates" />
     <MESSAGE value="App.py to use get instead of post since not adding or updating the database" />
@@ -674,7 +672,8 @@
     <MESSAGE value="Added search for branches and adjusted css" />
     <MESSAGE value="Updated documentations and add uml diagram" />
     <MESSAGE value="edited API doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited API doc" />
+    <MESSAGE value="More edits with the webpage" />
+    <option name="LAST_COMMIT_MESSAGE" value="More edits with the webpage" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

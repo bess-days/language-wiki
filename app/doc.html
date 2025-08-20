@@ -143,36 +143,45 @@
         <p>Request type: Get</p>
         <p>Request body: "script" field name </p>
         <pre>
-  http://localhost:5000/search_script?script=Chinese
+  http://localhost:5000/search_script?script=Devanagari
 </pre>
         <p>Response: JSON with languages that match query and their information.  If it returns an empty list, then the script chosen is not used in a language with over 50 million speakers </p>
         <pre>
 [
   {
-    "Chinese": {
-      "Branch": "Sinitic",
-      "Countries": 27,
-      "Family": "Sino-Tibetan",
-      "ISO-Code": "zh",
-      "Name": "Chinese",
+    "Bhojpuri": {
+      "Branch": "Indo-Aryan",
+      "Countries": 3,
+      "Family": "Indo-European",
+      "ISO-Code": "bho",
       "Scripts": [
-        "Chinese"
+        "Devanagari"
       ],
-      "Speakers": 1184
+      "Speakers": 53
     }
   },
   {
-    "Japanese": {
-      "Branch": null,
-      "Countries": 4,
-      "Family": "Japonic",
-      "ISO-Code": "ja",
-      "Name": "Japanese",
+    "Hindi": {
+      "Branch": "Indo-Aryan",
+      "Countries": 9,
+      "Family": "Indo-European",
+      "ISO-Code": "hi",
       "Scripts": [
-        "Chinese",
-        "Kana"
+        "Devanagari"
       ],
-      "Speakers": 126
+      "Speakers": 609
+    }
+  },
+  {
+    "Marathi": {
+      "Branch": "Indo-Aryan",
+      "Countries": 1,
+      "Family": "Indo-European",
+      "ISO-Code": "mr",
+      "Scripts": [
+        "Devanagari"
+      ],
+      "Speakers": 99
     }
   }
 ]
