@@ -105,7 +105,7 @@
         <pre>
   http://localhost:5000/search_branch?branch=Germanic
 </pre>
-        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that branch.</p>
         <pre>
   [
   {
@@ -196,7 +196,7 @@
         <pre>
   http://localhost:5000/search_speakers?min=50&max=60
 </pre>
-        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers that have that specific range of speakers.</p>
         <pre>[
   {
     "Amharic": {
@@ -246,7 +246,7 @@
         <pre>
   http://localhost:5000/search_countries?min1=10&max1=13
 </pre>
-        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers belong to that family.</p>
+        <p>Response: JSON with languages that match query and their information. If it returns an empty list, then no languages with over 50 million speakers that have that specific range of countries where the language is spoken.</p>
         <pre>[
   [
   {
