@@ -20,7 +20,7 @@ def test_family():
     assert len(f_test) == 3
     for lang in f_test:
         assert type(lang) == Language_Obj
-    assert [lang.languageName for lang in f_test]  == [ "Kannada", "Tamil", "Thai"]
+    assert [lang.languageName for lang in f_test]  == [ "Kannada", "Tamil", "Telugu"]
 def test_branch():
     b_test = REPO.search_by_branch("Germanic")
     assert type(b_test) == list

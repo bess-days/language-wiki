@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="More edits with the webpage">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/user_cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/user_cases.md" afterDir="false" />
-    </list>
+    <list default="true" id="5c714a64-d165-48f0-a1d3-cdbaf2e86030" name="Changes" comment="Editing everything for the tests and use cases and documentations count" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +108,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="language-wiki" />
       <option name="ENV_FILES" value="" />
@@ -237,14 +234,6 @@
       <workItem from="1754252815409" duration="5072000" />
       <workItem from="1754262218384" duration="6164000" />
       <workItem from="1754343086469" duration="16648000" />
-    </task>
-    <task id="LOCAL-00002" summary="-Added Docker&#10;- Followed ethics when scraping&#10;- Started building the SQL db">
-      <option name="closed" value="true" />
-      <created>1753904286873</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1753904286873</updated>
     </task>
     <task id="LOCAL-00003" summary="- Exported to csv so don't have to run each time to grab info">
       <option name="closed" value="true" />
@@ -630,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755206238675</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Editing everything for the tests and use cases and documentations count">
+      <option name="closed" value="true" />
+      <created>1755649351277</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1755649351277</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added test for type in the sql testing load_languages()" />
     <MESSAGE value="Adding app.py and docker file updates" />
     <MESSAGE value="App.py to use get instead of post since not adding or updating the database" />
     <MESSAGE value="Added scripts part (still working on it) and updated Dockerfile" />
@@ -673,7 +669,8 @@
     <MESSAGE value="Updated documentations and add uml diagram" />
     <MESSAGE value="edited API doc" />
     <MESSAGE value="More edits with the webpage" />
-    <option name="LAST_COMMIT_MESSAGE" value="More edits with the webpage" />
+    <MESSAGE value="Editing everything for the tests and use cases and documentations count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing everything for the tests and use cases and documentations count" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/language_wiki$testing.coverage" NAME="testing Coverage Results" MODIFIED="1752889130331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
